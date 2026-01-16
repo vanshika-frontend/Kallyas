@@ -1,7 +1,7 @@
 import React from 'react'
 import icoworld from "../Images/ico-world.svg"
 import icoresult from "../Images/ico-results.svg"
-import { BoundingBoxIcon, ComputerIcon, DownArrowIcon, GraphicIcon, InternetIcon } from '../svg'
+import { BoundingBoxIcon, ComputerIcon, DownArrowIcon, DownArrowImgIcon, GraphicIcon, InternetIcon } from '../svg'
 
 export default function Service() {
 
@@ -151,10 +151,10 @@ export default function Service() {
                 <div className="primamryfont w-full flex flex-wrap relative z-10  ">
 
                     <div
-                        className="relative w-full lg:w-1/2 h-[50vh] flex items-center justify-center lg:justify-end px-6 lg:pr-[50px] "
+                        className="relative w-full lg:w-1/2 h-[70vh] flex items-center justify-center lg:justify-end px-6 lg:pr-[50px] "
                     >
 
-                        <div className="absolute inset-0 bg-black/70 rounded-br-[70px]"></div>
+                        <div className="absolute inset-0 bg-black/70 lg:rounded-br-[70px] rounded-br-0"></div>
 
 
                         <div className="relative max-w-[540px] flex flex-col-reverse lg:flex-row items-center gap-[20px] text-center lg:text-right text-white " >
@@ -178,10 +178,10 @@ export default function Service() {
                     </div>
 
                     <div
-                        className="relative w-full lg:w-1/2 h-[50vh] flex items-center justify-center lg:justify-start px-6 lg:pl-[50px]"
+                        className="relative w-full lg:w-1/2 h-[70vh] flex items-center justify-center lg:justify-start px-6 lg:pl-[50px]"
                     >
-                     
-                        <div className="absolute inset-0 bg-red-600/80 rounded-bl-[70px]"></div>
+
+                        <div className="absolute inset-0 bg-red-600/80 lg:rounded-bl-[70px] rounded-bl-0"></div>
 
                         <div className="relative max-w-[500px] flex flex-col lg:flex-row items-center gap-6 text-center lg:text-left text-white">
                             <img
@@ -202,22 +202,23 @@ export default function Service() {
                             </div>
                         </div>
                     </div>
+
+
+
+                    <div className='mx-auto   w-[100px] h-[100px] bg-[white] rotate-[-45deg] shadow-[inset_0_12px_20px_rgba(0,0,0,0.2)] absolute bottom-[-65px] left-1/2 -translate-x-1/2  flex items-center justify-center BoxDownArrow'>
                       
+                            <DownArrowImgIcon />
+                      
+                    </div>
 
-                
-                     <div className='mx-auto   w-[100px] h-[100px] bg-[white] rotate-[-45deg] shadow-[inset_0_12px_20px_rgba(0,0,0,0.2)] absolute bottom-[-65px] left-1/2 -translate-x-1/2'></div>
-              
-                
+
 
 
                 </div>
-                <div>
 
-                <DownArrowIcon />
-                </div>
             </div>
 
-            
+
 
 
 

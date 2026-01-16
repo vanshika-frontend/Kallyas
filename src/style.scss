@@ -363,6 +363,11 @@
         pointer-events: none;
         background: linear-gradient(180deg, #000000 0, transparent);
         z-index: 30;
+         @media (max-width: 1024px) {
+
+                    display: none;
+
+            }
     }
 
     .background {
@@ -588,4 +593,9 @@
                 fill: red;
             }
         }
+}
+.BoxDownArrow{
+    svg{
+        transform: translateY(-23px) translateX(19px) rotate(43deg);
+    }
 }
