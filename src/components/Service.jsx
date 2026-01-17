@@ -9,7 +9,7 @@ export default function Service() {
         <>
 
             {/* OUR SERVICES */}
-            <section className="py-20 bg-gray-50 ">
+            <section className="py-20 bg-gray-50" id="services">
                 <div className="container mx-auto px-4">
 
                     <div className="text-center mb-16">
@@ -38,25 +38,25 @@ export default function Service() {
                                 <h2 className='text-[22px] my-[15px] lg:text-left text-center'>Web development</h2>
                                 <p className='text-[13px]  lg:text-left text-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil alias illo rem, impedit soluta quasi error.</p>
                                 <ul className="divide-y divide-gray-200 mt-[10px]">
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Content management systens
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Virtual shops and ecommerce
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Business Cards
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Presentation websites
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Online catalogues
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Portal systems
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         & any other dynamic website
                                     </li>
                                 </ul>
@@ -74,25 +74,25 @@ export default function Service() {
                                 <h2 className='text-[22px] my-[15px]  lg:text-left text-center'>graphic design</h2>
                                 <p className='text-[13px]  lg:text-left text-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil alias illo rem, impedit soluta quasi error.</p>
                                 <ul className="divide-y divide-gray-200 mt-[10px]">
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Logo design
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Flyers & Brochures
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Business Cards
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Stationery Design
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Powerpoint presentation
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Print Ads / Magazine
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Banners
                                     </li>
                                 </ul>
@@ -112,19 +112,19 @@ export default function Service() {
                                 <h2 className='text-[22px] my-[8px]  lg:text-left text-center'>internet marketing</h2>
                                 <p className='text-[13px]  lg:text-left text-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil alias illo rem, impedit soluta quasi error.</p>
                                 <ul className="divide-y divide-gray-200 mt-[10px]">
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Search engine optimisation
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Search engine marketing
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Internet advertising
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Web analysis
                                     </li>
-                                    <li className="py-3 text-red-500 text-[15px] cursor-pointer">
+                                    <li className="py-3 text-red-500 text-[13px] cursor-pointer">
                                         Blog marketing
                                     </li>
                                 </ul>

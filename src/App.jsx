@@ -7,8 +7,8 @@ import Navbar from './components/Navbar'
 import Service from './components/Service'
 import Reviews from "./components/Reviews"
 import Footer from "./components/footer"
-
 import DemoButton from "./components/DemoButton"
+
 
 function App() {
 
@@ -22,7 +22,6 @@ function App() {
      <MultiPurpose />
      <Reviews />
      <Footer />
-
     </>
   )
 }

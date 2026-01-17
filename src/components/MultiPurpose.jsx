@@ -86,7 +86,7 @@ export default function MultiPurpose() {
     return (
         <>
             {/* MULTI-PURPOSE */}
-            <section className="max-w-[1170px] w-full mx-auto  pt-[110px] pb-[70px] ">
+            <section className="max-w-[1170px] w-full mx-auto  pt-[110px] pb-[70px]" id='OurCompany'>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 px-[15px]">
 
                     {/* LEFT CONTENT */}
@@ -229,7 +229,7 @@ export default function MultiPurpose() {
             </section>
 
             {/* Slider */}
-            <div className='w-full max-w-[1170px] m-auto px-[15px] py-[35px]'>
+            <div className='w-full max-w-[1170px] m-auto px-[15px] py-[35px]' id='portfolio'>
                 <h1 className='text-[32px] mt-[20px] mb-[10px] font-bold '>RECENT PROJECTS</h1>
                 <div className='flex justify-between px-[20px]'>
                     <p>VIEW ALL</p>
@@ -265,7 +265,7 @@ export default function MultiPurpose() {
             </div>
 
             {/* SVG number */}
-            <div className="w-full bg-white py-16">
+            <div className="w-full bg-white py-16" id='process'>
                 <div className="max-w-[1170px] mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[] text-center">
 
                     <div >

@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import Icon from "../Images/kallyas-logo.svg";
 import { IoArrowBack } from "react-icons/io5";
-import { EnvatoIcon, Facebookwhite, LanguageIcon, LoginIcon, PrinterstIcon, PrinterstWhite, QuoteIcon, SearchIcon, SupportIcon, TwitterWhiteIcon } from "../svg";
+import { EnvatoIcon, Facebookwhite, LanguageIcon, LoginIcon, PrinterstWhite, QuoteIcon, SearchIcon, SupportIcon, TwitterWhiteIcon } from "../svg";
 import Slider from "react-slick";
+import QuoteModal from "../Modals/QuoteModal";
 
 export default function Navbar() {
   const [hideTopNav, setHideTopNav] = useState(false);
-  const [menutoggle, setMenuToggle] = useState(false)
+  const [menutoggle, setMenuToggle] = useState(false);
+  const [QuoteModalOpen, setQuoteModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +34,15 @@ export default function Navbar() {
     autoplay: true,
     speed: 1500,
   };
+  const scrollToServices = () => {
+  const element = document.getElementById("services");
+  const yOffset = -80; // navbar height
+  const y =
+    element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+  window.scrollTo({ top: y, behavior: "smooth" });
+};
+
 
   return (
     <>
@@ -81,38 +92,44 @@ export default function Navbar() {
               />
             </div>
           </div>
-          <div className="relative w-[59px] h-[59px] bg-red-600 flex flex-col items-center justify-center text-white FreeQuoteHoverMenu">
+          <div className="relative w-[59px] h-[59px] bg-red-600 flex flex-col items-center justify-center text-white FreeQuoteHoverMenu" 
+          onClick={() => setQuoteModalOpen(true)}>
             <p className="text-[17px]">FREE</p>
             <p className="text-[12px]">QUOTE</p>
             <div className="absolute top-full left-0 w-full h-[5px] z-40">
               <QuoteIcon />
             </div>
           </div>
+              {QuoteModalOpen && (
+              <QuoteModal close={() => setQuoteModalOpen(false)}/>
+            ) }
           <div
             className={`fixed top-0 right-0 h-screen w-full bg-white transform transition-transform duration-300 ease-in-out z-[1] ${menutoggle ? "translate-x-0" : "translate-x-full"}`}>
             <div className="p-[20px]" onClick={() => setMenuToggle(false)}>
               <IoArrowBack size={24} />
             </div>
             <ul className=" divide-y divide-gray-200 flex flex-col gap-[16px] p-6 mt-[20px]">
-              <li>HOME</li>
-              <li>SERVICES</li>
-              <li>OUR COMPANY</li>
-              <li>PORTFOLIO</li>
-              <li>PROCESS</li>
-              <li>PARTNERS</li>
-              <li>BLOG</li>
-              <li>CONTACT</li>
+              <li onClick={() => setMenuToggle(false)}><a href="#home">HOME</a></li>
+              <li onClick={() => setMenuToggle(false)}><a href="#services">SERVICES</a></li>
+              <li onClick={() => setMenuToggle(false)}><a href="#OurCompany">OUR COMPANY</a></li>
+              <li onClick={() => setMenuToggle(false)}><a href="#portfolio">PORTFOLIO</a></li>
+              <li onClick={() => setMenuToggle(false)}><a href="#process">PROCESS</a></li>
+              <li onClick={() => setMenuToggle(false)}><a href="#partners">PARTNERS</a></li>
+              <li onClick={() => setMenuToggle(false)}><a href="#blog">BLOG</a></li>
+              <li onClick={() => setMenuToggle(false)}><a href="#Contact">CONTACT</a></li>
             </ul>
           </div>
         </div>
 
       </div>
-      <div className="headers">
+
+      {/* Header */}
+      <div className="headers" id="home">
         <div className="headersbg">
         </div>
         {/* fIRST NAVBAR */}
         <div
-          className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out
+          className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ease-in-out
                       ${hideTopNav ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
         >
           <nav className="hidden primaryfont md:w-full lg:max-w-[1170px] max-w-[750px] md:flex md:justify-between md:m-auto p-[10px]">
@@ -168,74 +185,78 @@ export default function Navbar() {
               <div
                 className={`lg:hidden fixed top-0 right-0 h-screen w-[50%] bg-white transform transition-transform duration-300 ease-in-out z-[4] ${menutoggle ? "translate-x-0" : "translate-x-full"}`}>
                 <ul className=" divide-y divide-gray-200 flex flex-col gap-[16px] p-6 mt-[20px]">
-                  <li >HOME</li>
-                  <li>SERVICES</li>
-                  <li>OUR COMPANY</li>
-                  <li>PORTFOLIO</li>
-                  <li>PROCESS</li>
-                  <li>PARTNERS</li>
-                  <li>BLOG</li>
-                  <li>CONTACT</li>
+                  <li onClick={() => setMenuToggle(false)}><a href="#home">HOME</a></li>
+                  <li onClick={() => setMenuToggle(false)}><a href="#services">SERVICES</a></li>
+                  <li onClick={() => setMenuToggle(false)}><a href="#OurCompany">OUR COMPANY</a></li>
+                  <li onClick={() => setMenuToggle(false)}><a href="#portfolio">PORTFOLIO</a></li>
+                  <li onClick={() => setMenuToggle(false)}><a href="#process">PROCESS</a></li>
+                  <li onClick={() => setMenuToggle(false)}><a href="#partners">PARTNERS</a></li>
+                  <li onClick={() => setMenuToggle(false)}><a href="#blog">BLOG</a></li>
+                  <li onClick={() => setMenuToggle(false)}><a href="#Contact">CONTACT</a></li>
                 </ul>
               </div>
             </div>
 
             <ul className=" hidden lg:flex lg:gap-[20px] lg:text-[11px] text-white cursor-pointer">
-              <li className="relative z-[10] px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-                 hover:rounded ">HOME</li>
+              <li className="relative z-[10] px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white 
+              rounded "><a href="#home">HOME</a></li>
               <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-                 hover:rounded " >SERVICES</li>
+               hover:rounded" ><a href="#services">SERVICES</a></li>
               <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-                 hover:rounded ">OUR COMPANY</li>
+                 hover:rounded"><a href="#OurCompany">OUR COMPANY</a></li>
               <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-               hover:rounded ">PORTFOLIO</li>
+               hover:rounded"><a href="#portfolio">PORTFOLIO</a></li>
               <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-              hover:rounded ">PROCESS</li>
+              hover:rounded"><a href="#process">PROCESS</a></li>
               <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-                 hover:rounded ">PARTNERS</li>
+                 hover:rounded"><a href="#partners">PARTNERS</a></li>
               <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-               hover:rounded ">BLOG</li>
+               hover:rounded"><a href="#blog">BLOG</a></li>
               <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-                 hover:rounded ">CONTACT</li>
+                 hover:rounded"><a href="#Contact">CONTACT</a></li>
             </ul>
 
 
 
-            <div className="relative w-[59px] h-[59px] bg-red-600 flex flex-col items-center justify-center text-white hover:bg-white hover:text-[black] cursor-pointer FreeQuoteHover ">
+            <div className="relative w-[59px] h-[59px] bg-red-600 flex flex-col items-center justify-center text-white hover:bg-white hover:text-[black] cursor-pointer FreeQuoteHover" onClick={() => setQuoteModalOpen(true)}>
               <p className="text-[17px]">FREE</p>
               <p className="text-[12px]">QUOTE</p>
               <div className="absolute top-full left-0 w-full h-[5px] z-40">
                 <QuoteIcon />
               </div>
             </div>
+            {QuoteModalOpen && (
+              <QuoteModal close={() => setQuoteModalOpen(false)}/>
+            ) }
           </div>
         </div>
 
 
 
-
+        {/* BackgroundImage Slider */}
         <div className="slider-container  h-screen relative ">
 
           <Slider {...settings} >
+            {/* Ist BackgroundImage */}
             <div className="background">
               <div className="primaryfont relative w-full lg:max-w-[1170px] max-w-[750px] h-full mx-auto flex items-center px-[20px] pt-[150px]">
-                <div className="text-white w-full">
-                  <p className="mb-[15px] text-white/80">
+                <div className="text-white w-full Slide">
+                  <p className="mb-[15px] text-white/80 WebData">
                     WEB • MOBILE • ECOMMERCE
                   </p>
 
-                  <h1 className="text-[40px] leading-[120%] font-light">
+                  <h1 className="text-[40px] leading-[120%] font-light EdgeTheme">
                     KALLYAS IS A CUTTING EDGE THEME <br />
                     THAT WILL <span className="font-bold">ROCK WORLD ROCK</span>
                   </h1>
 
                   <div className="w-[60px] h-[2px] bg-white my-[25px]"></div>
 
-                  <p className="text-[18px] text-white/90 mb-[35px]">
+                  <p className="text-[18px] text-white/90 mb-[35px] PlusBtn">
                     Plus your customers will love it!
                   </p>
 
-                  <div className="flex gap-[10px]">
+                  <div className="flex gap-[10px] PlusBtn">
                     <button className="bg-red-600 hover:bg-red-700 px-[20px] py-[10px] text-white text-[13px] rounded-[3px] cursor-pointer">
                       BUY NOW
                     </button>
@@ -247,18 +268,19 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
+            {/* Second BackgroundImage */}
             <div className="Secondbackground ">
               <div className="h-screen w-full max-w-[1170px] mx-auto flex items-center px-[40px] ">
 
-                <div className="flex  flex-col">
-                  <div className="Decade sm:text-[26px] text-[15px]">
+                <div className="flex  flex-col Slide">
+                  <div className="Decade sm:text-[26px] text-[15px] EdgeTheme">
                     FOR OVER A DECADE
                   </div>
-                  <div className="flex flex-wrap sm:flex-nowrap sm:ml-0 ml-[20px]  gap-[10px] items-center">
+                  <div className="flex flex-wrap sm:flex-nowrap sm:ml-0 ml-[20px]  gap-[10px] items-center PlusBtn">
                     <div className="Deliver sm:text-[26px] text-[15px]">WE DELIVER RESULTS</div>
                     <div className="portifolio sm:text-[26px] text-[15px]">SEE PORTFOLIO</div>
                   </div>
-                  <div className="worldwide hidden sm:block text-[19px]">FOR HUNDREDS OF SUCCESSFUL BUSINESSES WORLDWIDE</div>
+                  <div className="worldwide hidden sm:block text-[19px] PlusBtn">FOR HUNDREDS OF SUCCESSFUL BUSINESSES WORLDWIDE</div>
                 </div>
               </div>
             </div>
@@ -267,6 +289,7 @@ export default function Navbar() {
 
       </div>
 
+      {/* SWISS ARMY Box  */}
       <div className="px-[16px] lg:mt-0 mt-[40px] actionBox">
 
         <div className="SWISS-ARMY w-full max-w-[1170px] m-auto ">

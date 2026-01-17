@@ -15,9 +15,7 @@ export default function Reviews() {
   return (
     <>
       {/* PARTNERS & REVIEWS */}
-
-
-            <div className="ReviewsBackground relative z-10 py-[60px] ">
+            <div className="ReviewsBackground relative z-10 py-[60px]  mt-[30px]" id='partners'>
               <div className='w-full max-w-[1170px]  text-center mx-auto flex justify-center items-center flex-col gap-[20px] pt-[35px] pb-[60px]'>
                 <h2 className='text-white text-[24px]'>OUR PARTNERS & REVIEWS</h2>
                 <div className="w-12 h-[2px] bg-white "></div>
@@ -163,7 +161,7 @@ export default function Reviews() {
 
 
       {/* LATEST STORIES */}
-      <section className="w-full max-w-[1170px] mx-auto px-4 py-16">
+      <section className="w-full max-w-[1170px] mx-auto px-4 py-16" id='blog'>
 
         <h2 className="text-red-600 text-[18px] uppercase mb-8">
           Latest Stories
