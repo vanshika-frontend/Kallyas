@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import Icon from "../Images/kallyas-logo.svg";
 import { IoArrowBack } from "react-icons/io5";
-import { EnvatoIcon, Facebookwhite, LanguageIcon, LoginIcon, PrinterstWhite, QuoteIcon, SearchFirstIcon, SearchIcon, SupportIcon, TwitterWhiteIcon } from "../svg";
+import { EnvatoIcon, Facebookwhite, LanguageIcon, LoginIcon, PrinterstWhite, QuoteIcon, SearchFirstIcon, SearchIcon, SupportIcon, TopArrowImgIcon, TwitterWhiteIcon } from "../svg";
 import Slider from "react-slick";
 import QuoteModal from "../Modals/QuoteModal";
-import { US, GB, EU, FR, ES } from "country-flag-icons/react/3x2";
+import { US, FR, ES } from "country-flag-icons/react/3x2";
 import LoginModal from "../Modals/LoginModal";
 
 
@@ -16,7 +16,10 @@ export default function Navbar() {
   const [SupportModalOpen, SetSupportModalOpen] = useState(false);
   const [SearchOpen, SetSearchOpen] = useState(false);
   const [fixSecondNav, setFixSecondNav] = useState(false);
+  const [showBtn, setShowBtn] = useState("myBtn none");
 
+
+  //For Header 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 120) {
@@ -30,7 +33,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
+  // For LoginModal
   useEffect(() => {
     if (LoginModalOpen) {
       document.body.style.overflow = "hidden";
@@ -44,6 +47,7 @@ export default function Navbar() {
   }, [LoginModalOpen]);
 
 
+  // For Slider
   const settings = {
     dots: false,
     infinite: true,
@@ -55,6 +59,27 @@ export default function Navbar() {
     speed: 1500,
   };
 
+  // Top Buttton
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      setShowBtn("myBtn");
+    } else {
+      setShowBtn("none");
+    }
+  }
+
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
 
 
   return (
@@ -425,10 +450,6 @@ export default function Navbar() {
 
       </div>
 
-
-
-
-
       {/* SWISS ARMY Box  */}
       <div className="px-[16px] lg:mt-0 mt-[40px] actionBox">
 
@@ -445,6 +466,19 @@ export default function Navbar() {
           </div>
 
         </div>
+      </div>
+
+
+
+      <div
+       onClick={topFunction}
+         id="myBtn"
+        className={showBtn}
+      >
+
+        <TopArrowImgIcon />
+        Top
+
       </div>
     </>
   );
