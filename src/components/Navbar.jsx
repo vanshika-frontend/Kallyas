@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Icon from "../Images/kallyas-logo.svg";
 import { IoArrowBack } from "react-icons/io5";
-import { EnvatoIcon, Facebookwhite, LanguageIcon, LoginIcon, PrinterstWhite, QuoteIcon, SearchIcon, SupportIcon, TwitterWhiteIcon } from "../svg";
+import { EnvatoIcon, Facebookwhite, LanguageIcon, LoginIcon, PrinterstWhite, QuoteIcon, SearchFirstIcon, SearchIcon, SupportIcon, TwitterWhiteIcon } from "../svg";
 import Slider from "react-slick";
 import QuoteModal from "../Modals/QuoteModal";
 import { US, GB, EU, FR, ES } from "country-flag-icons/react/3x2";
@@ -10,36 +10,38 @@ import LoginModal from "../Modals/LoginModal";
 
 
 export default function Navbar() {
-  const [hideTopNav, setHideTopNav] = useState(false);
   const [menutoggle, setMenuToggle] = useState(false);
   const [QuoteModalOpen, setQuoteModalOpen] = useState(false);
   const [LoginModalOpen, SetLoginModalOpen] = useState(false);
   const [SupportModalOpen, SetSupportModalOpen] = useState(false);
-
-    useEffect(() => {
-        if (LoginModalOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "auto";
-        }
-
-        return () => {
-            document.body.style.overflow = "auto";
-        };
-    }, [LoginModalOpen]);
+  const [SearchOpen, SetSearchOpen] = useState(false);
+  const [fixSecondNav, setFixSecondNav] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setHideTopNav(true);
+      if (window.scrollY > 120) {
+        setFixSecondNav(true);
       } else {
-        setHideTopNav(false);
+        setFixSecondNav(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+
+  useEffect(() => {
+    if (LoginModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [LoginModalOpen]);
 
 
   const settings = {
@@ -52,71 +54,63 @@ export default function Navbar() {
     autoplay: true,
     speed: 1500,
   };
-  const scrollToServices = () => {
-    const element = document.getElementById("services");
-    const yOffset = -80; // navbar height
-    const y =
-      element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-    window.scrollTo({ top: y, behavior: "smooth" });
-  };
 
 
   return (
     <>
-    {SupportModalOpen && (
-      <>
-      <div className={`relative w-full z-50 bg-[#f4f2ef]   overflow-hidden transition-all duration-500 ease-in-out  
+      {SupportModalOpen && (
+        <>
+          <div className={`relative w-full z-50 bg-[#f4f2ef]   overflow-hidden transition-all duration-500 ease-in-out  
         `}>
-        <div className=" flex justify-end pr-[30px] pt-[20px]">
-          <button className="w-[40px] h-[40px] text-white flex items-center justify-center rounded-full cursor-pointer  bg-[#000000ab] text-[20px]" onClick={() => SetSupportModalOpen(false)}>
-            &times;
-          </button>
-        </div>
-        <div className='max-w-[1170px] mx-auto flex flex-wrap md:flex-nowrap justify-between items-center gap-[40px] pb-[25px] px-[20px]'>
-          <div className='px-[20px]'>
-            <h1 className='text-[black] text-[18px] mb-[10px]'>HOW TO SHOP</h1>
-            <div className='flex flex-wrap md:flex-nowrap  gap-[30px]'>
-              <div className="flex items-start gap-3">
-                <span className="w-7 h-7 flex items-center justify-center rounded-full bg-red-600 text-[black]text-sm font-semibold">
-                  1
-                </span>
-                <p className="text-[black] text-[14px]">
-                  Login or create new account.
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="w-7 h-7 flex items-center justify-center rounded-full bg-red-600 text-[black]text-sm font-semibold">
-                  2
-                </span>
-                <p className="text-[black] text-[14px]">
-                  Review your order
-                </p>
-              </div>
+            <div className=" flex justify-end pr-[30px] pt-[20px]">
+              <button className="w-[40px] h-[40px] text-white flex items-center justify-center rounded-full cursor-pointer  bg-[#000000ab] text-[20px]" onClick={() => SetSupportModalOpen(false)}>
+                &times;
+              </button>
+            </div>
+            <div className='max-w-[1170px] mx-auto flex flex-wrap md:flex-nowrap justify-between items-center gap-[40px] pb-[25px] px-[20px]'>
+              <div className='px-[20px]'>
+                <h1 className='text-[black] text-[18px] mb-[10px]'>HOW TO SHOP</h1>
+                <div className='flex flex-wrap md:flex-nowrap  gap-[30px]'>
+                  <div className="flex items-start gap-3">
+                    <span className="w-7 h-7 flex items-center justify-center rounded-full bg-red-600 text-[black]text-sm font-semibold">
+                      1
+                    </span>
+                    <p className="text-[black] text-[14px]">
+                      Login or create new account.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="w-7 h-7 flex items-center justify-center rounded-full bg-red-600 text-[black]text-sm font-semibold">
+                      2
+                    </span>
+                    <p className="text-[black] text-[14px]">
+                      Review your order
+                    </p>
+                  </div>
 
-              <div className="flex items-start gap-3">
-                <span className="w-7 h-7 flex items-center justify-center rounded-full bg-red-600 text-[black]text-sm font-semibold">
-                  3
-                </span>
-                <p className="text-[black] text-[14px]">
-                  Payment & FREE shipment
-                </p>
+                  <div className="flex items-start gap-3">
+                    <span className="w-7 h-7 flex items-center justify-center rounded-full bg-red-600 text-[black]text-sm font-semibold">
+                      3
+                    </span>
+                    <p className="text-[black] text-[14px]">
+                      Payment & FREE shipment
+                    </p>
+                  </div>
+                </div>
+                <p className='text-[black] text-[12px] mt-[10px]'>If you still have problems, please let us know, by sending an email to support@website.com . Thank you!</p>
+              </div>
+              <div className="md:px-0 px-[20px]">
+                <h1 className='text-[black] text-[18px]'>SHOWROOM HOURS</h1>
+                <p className='text-[black] text-[15px]'>Mon-Fri 9:00AM - 6:00AM</p>
+                <p className='text-[black] text-[15px]'>Sat - 9:00AM-5:00PM</p>
+                <p className='text-[black] text-[15px]'>Sundays by appointment only!</p>
               </div>
             </div>
-            <p className='text-[black] text-[12px] mt-[10px]'>If you still have problems, please let us know, by sending an email to support@website.com . Thank you!</p>
-          </div>
-          <div className="md:px-0 px-[20px]">
-            <h1 className='text-[black] text-[18px]'>SHOWROOM HOURS</h1>
-            <p className='text-[black] text-[15px]'>Mon-Fri 9:00AM - 6:00AM</p>
-            <p className='text-[black] text-[15px]'>Sat - 9:00AM-5:00PM</p>
-            <p className='text-[black] text-[15px]'>Sundays by appointment only!</p>
-          </div>
-        </div>
 
-      </div>
-      </>
-    )}
-
+          </div>
+        </>
+      )}
 
       {/* Mobile Menu */}
       <div className="md:hidden block  w-full z-40  bg-[#000000d6]" >
@@ -150,13 +144,30 @@ export default function Navbar() {
               </div>
             </div>
 
-            <LoginIcon onClick={() => SetLoginModalOpen(true)} />
+            <div onClick={() => SetLoginModalOpen(true)}>
+              <LoginIcon />
+            </div>
             {LoginModalOpen && (
               <LoginModal closeLogin={() => SetLoginModalOpen(false)} />
             )}
+            <div onClick={() => SetSupportModalOpen(true)}>
+              <SupportIcon />
+            </div>
+            <div onClick={() => SetSearchOpen(true)}>
+              <SearchIcon />
+            </div>
+            {SearchOpen && (
+              <>
+                <div className="bg-white w-full px-[20px] pb-[30px] absolute top-[20px] right-0">
+                  <div className="text-[black] text-[15px] flex justify-end pt-[10px] cursor-pointer" onClick={() => SetSearchOpen(false)}>&times;</div>
+                  <div className="flex justify-between">
+                    <input placeholder="SEARCH" className="placeholder-gray-500" /> <SearchFirstIcon />
+                  </div>
+                  <div className="border-b border-gray-300 pt-[5px]"></div>
+                </div>
 
-            <SupportIcon />
-            <SearchIcon />
+              </>
+            )}
           </div>
         </nav>
         <div className="border-b border-[white] w-full max-w-[970px] mx-auto "></div>
@@ -213,138 +224,10 @@ export default function Navbar() {
       </div>
 
 
-      {/* Header */}
+      {/* Header Slider */}
       <div className="headers" id="home">
-        <div className="headersbg">
-        </div>
-        {/* fIRST NAVBAR */}
-        <div
-          className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ease-in-out
-            ${hideTopNav ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
-        >
-          <nav className="hidden primaryfont md:w-full lg:max-w-[1170px] max-w-[750px] md:flex md:justify-between md:m-auto p-[10px]">
-            <div className="flex gap-[20px] items-center">
-              <div className='flex gap-[5px]' >
-                <Facebookwhite />
-                <TwitterWhiteIcon />
-                <PrinterstWhite />
-                <EnvatoIcon />
-              </div>
-              <div className="text-white text-[12px]" >
-                Questions? Call: 0900 800 900
-              </div>
-            </div>
-
-            <div className="flex gap-[10px] text-white items-center text-[11px]">
-              <div className="relative group">
-                <p className="cursor-pointer">LANGUAGES</p>
-                <div className="absolute hidden group-hover:block bg-white p-[10px] rounded-[2px]">
-                  <div className="flex gap-[6px] text-gray-800">
-                    <US className="w-[20px] h-[20px]" /> <p>ENGLISH</p>
-                  </div>
-                  <div className="flex gap-[6px]  text-gray-800">
-                    <FR className="w-[20px] h-[20px]" />  <p>FRANCAIS</p>
-                  </div>
-                  <div className="flex gap-[6px]  text-gray-800">
-                    <ES className="w-[20px] h-[20px]" /> <p>ESPANOL</p>
-                  </div>
-                </div>
-              </div>
-              <p onClick={() => SetLoginModalOpen(true)} className="cursor-pointer">LOGIN</p>
-              {LoginModalOpen && (
-                <LoginModal closeLogin={() => SetLoginModalOpen(false)} />
-              )}
-
-              <p onClick={() => SetSupportModalOpen(true)} className="cursor-pointer">SUPPORT</p>
-
-
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" d="m19.485 20.154l-6.262-6.262q-.75.639-1.725.989t-1.96.35q-2.402 0-4.066-1.663T3.808 9.503T5.47 5.436t4.064-1.667t4.068 1.664T15.268 9.5q0 1.042-.369 2.017t-.97 1.668l6.262 6.261zM9.539 14.23q1.99 0 3.36-1.37t1.37-3.361t-1.37-3.36t-3.36-1.37t-3.361 1.37t-1.37 3.36t1.37 3.36t3.36 1.37" /></svg>
-            </div>
-          </nav>
-
-          <div className="hidden md:block md:border-b md:border-[#dad0d061] md:w-full md:max-w-[1170px] md:mx-auto "></div>
-        </div>
-
-
-        {/* SECOND NAVBAR */}
-        <div
-          className={`hidden md:block md:fixed md:left-0 md:w-full z-35  md:transition-all md:duration-500  
-          ${hideTopNav ? "md:top-0" : "md:top-[52px]"}`}
-        >
-          <div className="w-full lg:max-w-[1170px] max-w-[750px]   flex justify-between m-auto p-[10px] primaryfont items-center">
-            <div className="flex items-center gap-[10px]">
-              <img src={Icon} alt="logo" />
-              <div onClick={() => setMenuToggle(!menutoggle)} className="lg:hidden block cursor-pointer">
-                <div className="relative w-5 h-6">
-                  <span
-                    className={`absolute left-0 top-0 h-[3px] w-full bg-black rounded transition-all duration-300
-                     ${menutoggle ? "rotate-120 top-[10px]" : ""}`}
-                  />
-                  <span
-                    className={`absolute left-0 top-[10px] h-[3px] w-full bg-black rounded transition-all duration-300
-                     ${menutoggle ? "-rotate-120 top-[10px]" : ""}`}
-                  />
-                  <span
-                    className={`absolute left-0 top-[20px] h-[3px] w-full bg-black rounded transition-all duration-300
-                         ${menutoggle ? "opacity-0 " : ""}`}
-                  />
-                </div>
-              </div>
-              {/* Mobile Menu */}
-              <div
-                className={`lg:hidden fixed top-0 right-0 h-screen w-[50%] bg-white transform transition-transform duration-300 ease-in-out z-38 ${menutoggle ? "translate-x-0" : "translate-x-full"}`}>
-                <ul className=" divide-y divide-gray-200 flex flex-col gap-[16px] p-6 mt-[20px]">
-                  <li onClick={() => setMenuToggle(false)}><a href="#home">HOME</a></li>
-                  <li onClick={() => setMenuToggle(false)}><a href="#services">SERVICES</a></li>
-                  <li onClick={() => setMenuToggle(false)}><a href="#OurCompany">OUR COMPANY</a></li>
-                  <li onClick={() => setMenuToggle(false)}><a href="#portfolio">PORTFOLIO</a></li>
-                  <li onClick={() => setMenuToggle(false)}><a href="#process">PROCESS</a></li>
-                  <li onClick={() => setMenuToggle(false)}><a href="#partners">PARTNERS</a></li>
-                  <li onClick={() => setMenuToggle(false)}><a href="#blog">BLOG</a></li>
-                  <li onClick={() => setMenuToggle(false)}><a href="#Contact">CONTACT</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <ul className=" hidden lg:flex lg:gap-[20px] lg:text-[11px] text-white cursor-pointer">
-              <li className="relative z-[10] px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white 
-              rounded "><a href="#home">HOME</a></li>
-              <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-               hover:rounded" ><a href="#services">SERVICES</a></li>
-              <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-                 hover:rounded"><a href="#OurCompany">OUR COMPANY</a></li>
-              <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-               hover:rounded"><a href="#portfolio">PORTFOLIO</a></li>
-              <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-              hover:rounded"><a href="#process">PROCESS</a></li>
-              <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-                 hover:rounded"><a href="#partners">PARTNERS</a></li>
-              <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-               hover:rounded"><a href="#blog">BLOG</a></li>
-              <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-                 hover:rounded"><a href="#Contact">CONTACT</a></li>
-            </ul>
-
-
-
-            <div className="relative w-[59px] h-[59px] bg-red-600 flex flex-col items-center justify-center text-white hover:bg-white hover:text-[black] cursor-pointer FreeQuoteHover" onClick={() => setQuoteModalOpen(true)}>
-              <p className="text-[17px]">FREE</p>
-              <p className="text-[12px]">QUOTE</p>
-              <div className="absolute top-full left-0 w-full h-[5px] z-35">
-                <QuoteIcon />
-              </div>
-            </div>
-            {QuoteModalOpen && (
-              <QuoteModal close={() => setQuoteModalOpen(false)} />
-            )}
-          </div>
-        </div>
-
-
-
-        {/* BackgroundImage Slider */}
         <div className="slider-container  h-screen relative ">
-
+          {/* Slider */}
           <Slider {...settings} >
             {/* Ist BackgroundImage */}
             <div className="background">
@@ -393,10 +276,158 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
+
           </Slider>
+
+          {/* Header */}
+          <div className="absolute top-0 left-0 w-full z-35 ">
+            <div className={`headersbg  ${fixSecondNav ? "fixed" : "absolute "} `}></div>
+            <div className="mx-auto lg:max-w-[1170px] max-w-[750px] ">
+
+              {/* fIRST NAVBAR */}
+              <div
+                className={` transition-all duration-500 ease-in-out  z-40 relative
+                  
+            `}
+              >
+                <nav className="hidden primaryfont  md:flex md:justify-between md:m-auto p-[10px]">
+                  <div className="flex gap-[20px] items-center">
+                    <div className='flex gap-[5px]' >
+                      <Facebookwhite />
+                      <TwitterWhiteIcon />
+                      <PrinterstWhite />
+                      <EnvatoIcon />
+                    </div>
+                    <div className="text-white text-[12px]" >
+                      Questions? Call: 0900 800 900
+                    </div>
+                  </div>
+
+                  <div className="relative flex gap-[10px] text-white items-center text-[11px]">
+                    <div className="relative group">
+                      <p className="cursor-pointer">LANGUAGES</p>
+                      <div className="absolute hidden group-hover:block bg-white p-[10px] rounded-[2px]">
+                        <div className="flex gap-[6px] text-gray-800">
+                          <US className="w-[20px] h-[20px]" /> <p>ENGLISH</p>
+                        </div>
+                        <div className="flex gap-[6px]  text-gray-800">
+                          <FR className="w-[20px] h-[20px]" />  <p>FRANCAIS</p>
+                        </div>
+                        <div className="flex gap-[6px]  text-gray-800">
+                          <ES className="w-[20px] h-[20px]" /> <p>ESPANOL</p>
+                        </div>
+                      </div>
+                    </div>
+                    <p onClick={() => SetLoginModalOpen(true)} className="cursor-pointer">LOGIN</p>
+                    {LoginModalOpen && (
+                      <LoginModal closeLogin={() => SetLoginModalOpen(false)} />
+                    )}
+
+                    <p onClick={() => SetSupportModalOpen(true)} className="cursor-pointer">SUPPORT</p>
+
+                    <div onClick={() => SetSearchOpen(true)} className="cursor-pointer">
+                      <SearchIcon />
+                    </div>
+                    {SearchOpen && (
+                      <>
+                        <div className="absolute top-[25px] right-0  bg-white w-full px-[20px] pb-[30px] z-40">
+                          <div className="text-[black] text-[15px] flex justify-end pt-[10px] cursor-pointer" onClick={() => SetSearchOpen(false)}>&times;</div>
+                          <div className="flex">
+                            <input placeholder="SEARCH" className="placeholder-gray-500" /> <SearchFirstIcon />
+                          </div>
+                          <div className="border-b border-gray-300 pt-[5px]"></div>
+                        </div>
+                      </>
+                    )}
+
+                  </div>
+                </nav>
+
+                <div className="hidden md:block md:border-b md:border-[#dad0d061] md:w-full md:max-w-[1170px] md:mx-auto "></div>
+              </div>
+
+              {/* SECOND NAVBAR */}
+              <div
+                className={`hidden md:block   z-35  md:transition-all md:duration-500  
+                   ${fixSecondNav ? "fixed top-0 left-0 w-full" : "relative "} `}
+              >
+                <div className="  flex justify-between m-auto p-[10px] primaryfont items-center lg:max-w-[1170px] max-w-[750px] mx-auto">
+                  <div className="flex items-center gap-[10px]">
+                    <img src={Icon} alt="logo" />
+                    <div onClick={() => setMenuToggle(!menutoggle)} className="lg:hidden block cursor-pointer">
+                      <div className="relative w-5 h-6">
+                        <span
+                          className={`absolute left-0 top-0 h-[3px] w-full bg-black rounded transition-all duration-300
+                     ${menutoggle ? "rotate-120 top-[10px]" : ""}`}
+                        />
+                        <span
+                          className={`absolute left-0 top-[10px] h-[3px] w-full bg-black rounded transition-all duration-300
+                     ${menutoggle ? "-rotate-120 top-[10px]" : ""}`}
+                        />
+                        <span
+                          className={`absolute left-0 top-[20px] h-[3px] w-full bg-black rounded transition-all duration-300
+                         ${menutoggle ? "opacity-0 " : ""}`}
+                        />
+                      </div>
+                    </div>
+                    {/* Mobile Menu */}
+                    <div
+                      className={`lg:hidden fixed top-0 right-0 h-screen w-[50%] bg-white transform transition-transform duration-300 ease-in-out z-38 ${menutoggle ? "translate-x-0" : "translate-x-full"}`}>
+                      <ul className=" divide-y divide-gray-200 flex flex-col gap-[16px] p-6 mt-[20px]">
+                        <li onClick={() => setMenuToggle(false)}><a href="#home">HOME</a></li>
+                        <li onClick={() => setMenuToggle(false)}><a href="#services">SERVICES</a></li>
+                        <li onClick={() => setMenuToggle(false)}><a href="#OurCompany">OUR COMPANY</a></li>
+                        <li onClick={() => setMenuToggle(false)}><a href="#portfolio">PORTFOLIO</a></li>
+                        <li onClick={() => setMenuToggle(false)}><a href="#process">PROCESS</a></li>
+                        <li onClick={() => setMenuToggle(false)}><a href="#partners">PARTNERS</a></li>
+                        <li onClick={() => setMenuToggle(false)}><a href="#blog">BLOG</a></li>
+                        <li onClick={() => setMenuToggle(false)}><a href="#Contact">CONTACT</a></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <ul className=" hidden lg:flex lg:gap-[20px] lg:text-[11px] text-white cursor-pointer">
+                    <li className="relative z-[10] px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white 
+              rounded "><a href="#home">HOME</a></li>
+                    <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
+               hover:rounded" ><a href="#services">SERVICES</a></li>
+                    <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
+                 hover:rounded"><a href="#OurCompany">OUR COMPANY</a></li>
+                    <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
+               hover:rounded"><a href="#portfolio">PORTFOLIO</a></li>
+                    <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
+              hover:rounded"><a href="#process">PROCESS</a></li>
+                    <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
+                 hover:rounded"><a href="#partners">PARTNERS</a></li>
+                    <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
+               hover:rounded"><a href="#blog">BLOG</a></li>
+                    <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
+                 hover:rounded"><a href="#Contact">CONTACT</a></li>
+                  </ul>
+
+
+
+                  <div className="relative w-[59px] h-[59px] bg-red-600 flex flex-col items-center justify-center text-white hover:bg-white hover:text-[black] cursor-pointer FreeQuoteHover" onClick={() => setQuoteModalOpen(true)}>
+                    <p className="text-[17px]">FREE</p>
+                    <p className="text-[12px]">QUOTE</p>
+                    <div className="absolute top-full left-0 w-full h-[5px] z-35">
+                      <QuoteIcon />
+                    </div>
+                  </div>
+                  {QuoteModalOpen && (
+                    <QuoteModal close={() => setQuoteModalOpen(false)} />
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
+
+
+
+
 
       {/* SWISS ARMY Box  */}
       <div className="px-[16px] lg:mt-0 mt-[40px] actionBox">
