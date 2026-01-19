@@ -22,7 +22,7 @@ export default function QuoteModal({close}) {
           <input
             type="text"
             placeholder="Enter your name"
-            className="w-full border border-gray-300 rounded-md px-[10px] py-[14px] text-[11px] focus:outline-none focus:border-red-500"
+            className="w-full border border-gray-300 rounded-md px-[10px] py-[14px] text-[11px] focus:outline-none focus:border-gray-500"
           />
         </div>
 
@@ -33,7 +33,7 @@ export default function QuoteModal({close}) {
           <input
             type="text"
             placeholder="Please enter the name of your company"
-            className="w-full border border-gray-300 rounded-md px-[10px] py-[14px] text-[11px] focus:outline-none focus:border-red-500"
+            className="w-full border border-gray-300 rounded-md px-[10px] py-[14px] text-[11px] focus:outline-none focus:border-gray-500"
           />
         </div>
       </div>
@@ -46,7 +46,7 @@ export default function QuoteModal({close}) {
         <input
           type="email"
           placeholder="Please type your email address"
-          className="w-full border border-gray-300 rounded-md  px-[10px] py-[14px] text-[11px] focus:outline-none focus:border-red-500"
+          className="w-full border border-gray-300 rounded-md  px-[10px] py-[14px] text-[11px] focus:outline-none focus:border-gray-500"
         />
       </div>
 

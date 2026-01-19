@@ -10,14 +10,14 @@ export default function DemoButton() {
         <>
             {!DemoToggle && (
                 <div
-                    className="w-[58px] z-45 fixed top-[170px] right-0 text-black text-[10px] py-[13px] bg-white rounded-[3px] leading-[150%] text-center cursor-pointer font-bold shadow-[0_4px_10px_rgba(0,0,0,0.3)]"
+                    className="w-[58px] z-40 fixed top-[170px] right-0 text-black text-[10px] py-[13px] bg-white rounded-[3px] leading-[150%] text-center cursor-pointer font-bold shadow-[0_4px_10px_rgba(0,0,0,0.3)]"
                     onClick={() => setDemoToggle(true)}
                 >
                     YOU GET 70+ MORE DEMOS
                 </div>
             )}
             <div
-                className="w-[58px] z-45 fixed bottom-[100px] right-0 text-white text-[15px] py-[5px] bg-[#000000ab] rounded-[3px] leading-[150%] text-center cursor-pointer font-bold shadow-[0_4px_10px_rgba(0,0,0,0.3)] flex justify-center items-center flex-col"
+                className="w-[58px] z-40 fixed bottom-[100px] right-0 text-white text-[15px] py-[5px] bg-[#000000ab] rounded-[3px] leading-[150%] text-center cursor-pointer font-bold shadow-[0_4px_10px_rgba(0,0,0,0.3)] flex justify-center items-center flex-col"
             >
                 <a href='#home'>
                     <TopArrowImgIcon />
