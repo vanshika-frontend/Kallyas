@@ -7,8 +7,8 @@ import picjumbo1 from "../Images/picjumbo.com_HNCK9101-370x200_c.jpg"
 import picjumbo2 from "../Images/picjumbo.com_HNCK8963-370x200_c.jpg"
 import picjumbo3 from "../Images/picjumbo.com_HNCK8377-370x200_c.jpg"
 import { ScrollReveal } from '@allwells/react-scroll-reveal';
-import { ParallaxBanner} from 'react-scroll-parallax';
-import BgImg from "../Images/bg-demos-prlx.jpg"
+import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
+
 
 
 export default function Reviews() {
@@ -16,8 +16,9 @@ export default function Reviews() {
     <>
       {/* PARTNERS & REVIEWS */}
 
-      <ParallaxBanner layers={[{ image: '/bg-demos-prlx.jpg', speed: 15 }]} className="aspect-[2/1]">
-        <div className="ReviewsBackground relative z-10 py-[60px]  mt-[30px]" id='partners'>
+      <ParallaxBanner  >
+       <ParallaxBannerLayer image="/bg-demos-prlx.jpg" speed={-20} />
+        <div className="ReviewsBackground w-full min-h-screen relative z-10 py-[60px]  mt-[30px]" id='partners'>
           <div className='w-full max-w-[1170px]  text-center mx-auto flex justify-center items-center flex-col gap-[20px] pt-[35px] pb-[60px]'>
             <h2 className='text-white text-[24px]'>OUR PARTNERS & REVIEWS</h2>
             <div className="w-12 h-[2px] bg-white "></div>
@@ -168,7 +169,7 @@ export default function Reviews() {
         <h2 className="text-red-600 text-[18px] uppercase mb-8">
           Latest Stories
         </h2>
-          {/* Three Images */}
+        {/* Three Images */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px]">
           <div>
             <div className="Storieshover relative overflow-hidden">
@@ -252,7 +253,7 @@ export default function Reviews() {
         </div>
 
         <div className="w-full max-w-[1170px] mx-auto h-[1px] bg-[gray] my-[30px]"></div>
-      
+
         {/*  WORDPRESS THEME */}
         <div className='w-full max-w-[1170px] flex sm:flex-nowrap flex-wrap justify-between items-center'>
           <div className='md:max-w-[600px] sm:max-w-[400px] max-w-[600px] '>
@@ -260,12 +261,12 @@ export default function Reviews() {
             <p className='text-[16px]'>We always had this statement and we're keeping our promise. Beside a powerful yet easy to use frontend Page Builder, Kallyas has packed inside lots of sweet features that wait to be discovered.</p>
           </div>
           <a href="https://themeforest.net/item/kallyas-responsive-multipurpose-wordpress-theme/4091658?license=regular&open_purchase_for_item_id=4091658&purchasable=source&ref=hogash" target='_blank'>
-          <button className='text-[13px] px-[20px] py-[10px] text-white bg-[#cd2122] w-full sm:w-[200px] sm:mt-0 mt-[20px] hover:bg-[#7f1e1e] rounded cursor-pointer'>BUY KALLYAS NOW</button>
+            <button className='text-[13px] px-[20px] py-[10px] text-white bg-[#cd2122] w-full sm:w-[200px] sm:mt-0 mt-[20px] hover:bg-[#7f1e1e] rounded cursor-pointer'>BUY KALLYAS NOW</button>
           </a>
         </div>
 
 
-         {/*CORPORATE HEADQUARTERS */}
+        {/*CORPORATE HEADQUARTERS */}
         <div className='w-full max-w-[1170px] pt-[90px] pb-[35px]'>
           <h1 className='text-[#000000] text-[26px]'>CORPORATE HEADQUARTERS</h1>
           <p className='text-[#444444] text-[16px] pb-[25px]'>Kallyas Innovations, Inc.</p>
@@ -286,8 +287,6 @@ export default function Reviews() {
           </div>
         </div>
       </section>
-
-
 
     </>
   )
