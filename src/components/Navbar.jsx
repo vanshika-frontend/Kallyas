@@ -87,7 +87,7 @@ export default function Navbar() {
     <>
       {/* Support Modal */}
       <div className={` relative w-full z-50 bg-[#f4f2ef]   overflow-hidden transition-all duration-500 ease-in-out  
-          ${SupportModalOpen ? "max-h-[200px]" : "max-h-0"}
+          ${SupportModalOpen ? "md:max-h-[200px] max-h-screen" : "max-h-0"}
         `}>
         <div className="relative">
           <button className="w-[40px] h-[40px] text-white rounded-full cursor-pointer  bg-[#000000ab] text-[20px] absolute xl:top-13 xl:right-10 top-0  right-0" onClick={() => SetSupportModalOpen(false)}>
@@ -155,45 +155,51 @@ export default function Navbar() {
           </div>
 
           <div className="flex gap-[7px] text-white items-center text-[10px]">
-            <div className="relative group">
+            <div className="relative group cursor-pointer" >
               <LanguageIcon />
               <div className="absolute hidden group-hover:block bg-white p-[10px] rounded-[2px]">
-                <div className="flex gap-[6px] text-gray-800">
+                <div className="flex items-center gap-[6px] text-gray-800  hover:bg-gray-200 cursor-pointer">
                   <US className="w-[20px] h-[20px]" /> <p>ENGLISH</p>
                 </div>
-                <div className="flex gap-[6px]  text-gray-800">
+                <div className="flex items-center gap-[6px]  text-gray-800  hover:bg-gray-200 cursor-pointer" >
                   <FR className="w-[20px] h-[20px]" />  <p>FRANCAIS</p>
                 </div>
-                <div className="flex gap-[6px]  text-gray-800">
+                <div className="flex gap-[6px] items-center text-gray-800  hover:bg-gray-200 cursor-pointer">
                   <ES className="w-[20px] h-[20px]" /> <p>ESPANOL</p>
                 </div>
               </div>
             </div>
 
-            <div onClick={() => SetLoginModalOpen(true)}>
+            <div onClick={() => SetLoginModalOpen(true)} className="cursor-pointer">
               <LoginIcon />
             </div>
             {LoginModalOpen && (
               <LoginModal closeLogin={() => SetLoginModalOpen(false)} />
             )}
-            <div onClick={() => SetSupportModalOpen(true)}>
+            <div onClick={() => SetSupportModalOpen(true)} className="cursor-pointer">
               <SupportIcon />
             </div>
-            <div onClick={() => SetSearchOpen(true)}>
-              <SearchIcon />
-            </div>
-            {SearchOpen && (
-              <>
-                <div className="bg-white w-full px-[20px] pb-[30px] absolute top-[20px] right-0">
-                  <div className="text-[black] text-[15px] flex justify-end pt-[10px] cursor-pointer" onClick={() => SetSearchOpen(false)}>&times;</div>
-                  <div className="flex justify-between">
-                    <input placeholder="SEARCH" className="placeholder-gray-500" /> <SearchFirstIcon />
-                  </div>
-                  <div className="border-b border-gray-300 pt-[5px]"></div>
-                </div>
-
-              </>
-            )}
+  
+                      {SearchOpen ? (
+                         <div  onClick={() => SetSearchOpen(false)} className="cursor-pointer bg-white w-[25px] h-[25px] flex items-center justify-center">
+                          <CloseIcon />
+                         </div>
+                      ) : (
+                        <div onClick={() => SetSearchOpen(true)} className="cursor-pointer bg-[#00000059] w-[25px] h-[25px] flex items-center justify-center">
+                          <SearchIcon />
+                        </div>
+                      )}
+                       {SearchOpen && (
+                      <>
+                        <div className="absolute top-[40px] right-0  bg-white w-full px-[20px] py-[30px] z-40">
+                          <div className="flex cursor-pointer  justify-between">
+                            <input placeholder="SEARCH" type="text"  value={searchInput}    onChange={(e) => setSearchInput(e.target.value)} className="placeholder-gray-500 border-0 outline-none focus:outline-none text-[black]" /> 
+                            <SearchFirstIcon />
+                          </div>
+                          <div className="border-b border-gray-300 pt-[5px]"></div>
+                        </div>
+                      </> 
+                    )}
           </div>
         </nav>
         <div className="border-b border-[white] w-full max-w-[970px] mx-auto "></div>
@@ -335,13 +341,13 @@ export default function Navbar() {
                     <div className="relative group">
                       <p className="cursor-pointer">LANGUAGES</p>
                       <div className="absolute hidden group-hover:block bg-white p-[10px] rounded-[2px] cursor-pointer">
-                        <div className="flex gap-[6px] text-gray-800 hover:bg-gray-200">
+                        <div className="flex items-center gap-[6px] text-gray-800 hover:bg-gray-200">
                           <US className="w-[20px] h-[20px]" /> <p>ENGLISH</p>
                         </div>
-                        <div className="flex gap-[6px]  text-gray-800 hover:bg-gray-200">
+                        <div className="flex items-center gap-[6px]  text-gray-800 hover:bg-gray-200">
                           <FR className="w-[20px] h-[20px]" />  <p>FRANCAIS</p>
                         </div>
-                        <div className="flex gap-[6px]  text-gray-800 hover:bg-gray-200">
+                        <div className="flex  items-center gap-[6px]  text-gray-800 hover:bg-gray-200">
                           <ES className="w-[20px] h-[20px]" /> <p>ESPANOL</p>
                         </div>
                       </div>
@@ -350,22 +356,6 @@ export default function Navbar() {
 
                     <p onClick={() => SetSupportModalOpen(true)} className="cursor-pointer">SUPPORT</p>
 
-                    {/* <div onClick={() => SetSearchOpen(true)} className="cursor-pointer">
-                      <SearchIcon />
-                    </div>
-                    {SearchOpen && (
-                      <>
-                        <div className="absolute top-[25px] right-0  bg-white w-full px-[20px] pb-[30px] z-40">
-                          <div className="text-[black] text-[15px] flex justify-end pt-[10px] cursor-pointer" onClick={() => SetSearchOpen(false)}>&times;</div>
-                          <div className="flex">
-                            <input placeholder="SEARCH" className="placeholder-gray-500" /> <SearchFirstIcon />
-                          </div>
-                          <div className="border-b border-gray-300 pt-[5px]"></div>
-                        </div>
-                      </>
-                    )} */}
-
-                   
                       {SearchOpen ? (
                          <div  onClick={() => SetSearchOpen(false)} className="cursor-pointer bg-white w-[25px] h-[25px] flex items-center justify-center">
                           <CloseIcon />
