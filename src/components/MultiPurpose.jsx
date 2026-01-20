@@ -3,10 +3,7 @@ import phone from "../Images/ptf1.png"
 import img1 from "../Images/gpg1-270x270_c.jpg";
 import img2 from "../Images/gpg8-270x270_c.jpg"
 import { CorrectIcon, FacebookIcon, LeftarrowIcon, PrinterstIcon, RightarrowIcon, RocketIcon, SecondComputerIcon, StarIcon, StrokeIcon, TwitterIcon, YouTubeIcon } from '../svg';
-import ptf13 from "../Images/ptf13.png"
-import ptf5 from "../Images/ptf5.png"
-import ptf7576 from "../Images/ptf7-768x576.png"
-import ptf3576 from "../Images/ptf3-768x576.png"
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -46,43 +43,43 @@ export default function MultiPurpose() {
     const previous = () => {
         sliderRef.slickPrev();
     };
-        const settings = {
-            dots: false,
-            arrows: false,
-            infinite: true,
-            swipeToSlide: true,
-            centerMode: true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            centerPadding: "200px",
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: false,
-                        centerMode: true,
-                          arrows: false,
-                        centerPadding: "80px",
+    const settings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        swipeToSlide: true,
+        centerMode: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        centerPadding: "200px",
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                    centerMode: true,
+                    arrows: false,
+                    centerPadding: "80px",
 
-                    }
-                },
-                {
-                    breakpoint: 767,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        infinite: true,
-                          arrows: false,
-                        centerPadding: "0px",
-                        centerMode: false,
-                    }
                 }
-            ]
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    arrows: false,
+                    centerPadding: "0px",
+                    centerMode: false,
+                }
+            }
+        ]
 
-        };
+    };
     return (
         <>
             {/* MULTI-PURPOSE */}
@@ -119,20 +116,20 @@ export default function MultiPurpose() {
                         <div className='mt-[20px] text-[#535353] text-[16px] ' >
                             <h1 className='pt-[30px] pb-[15px]'>STAY IN TOUCH WITH US!</h1>
                             <div className='grid grid-cols-1 lg:grid-cols-4 gap-[20px] mt-[20px]'>
-                                <div>
-                                    <FacebookIcon />
+                                <div className='cursor-pointer AllIconHover'>
+                                    <a href='/'><FacebookIcon /></a>
                                     <p className='mt-[7px]'>We love to share new stuff!</p>
                                 </div>
-                                <div>
-                                    <YouTubeIcon />
+                                <div  className='cursor-pointer AllIconHover'>
+                                     <a href='/'><YouTubeIcon /></a>
                                     <p className='mt-[7px]'>Watch our videos!</p>
                                 </div>
-                                <div>
-                                    <TwitterIcon />
+                                <div  className='cursor-pointer AllIconHover'>
+                                     <a href='/'><TwitterIcon /></a>
                                     <p className='mt-[7px]'>Follow our tweets!</p>
                                 </div>
-                                <div>
-                                    <PrinterstIcon />
+                                <div  className='cursor-pointer AllIconHover'>
+                                     <a href='/'><PrinterstIcon /></a>
                                     <p className='mt-[7px]'>We pin only the good stuff!</p>
                                 </div>
                             </div>
@@ -245,20 +242,49 @@ export default function MultiPurpose() {
                 <Slider {...settings} ref={slider => {
                     sliderRef = slider;
                 }} >
-                    <div className='px-[5px] outline-none focus:outline-none border-0 '>
-                        <img src={ptf13} />
+                    <div className='px-[5px] cursor-pointer'>
+                        <div className='bg-[url(../src/Images/ptf13.png)]  h-[500px] bg-no-repeat  bg-cover outline-none focus:outline-none border-0 relative ImageSection '>
+                            <div className='p-[20px]  absolute bottom-[-20px] ImageSectionHover '>
+                                <button className='text-white text-[10px] bg-[#cd2122] py-[6px] px-[4px] rounded mb-[10px]'>ILLUSTRATION, MISCELLANEOUS</button>
+                                <p className='text-[18px] text-white font-bold'>DRAMATICALLY EXTEND WORLD-CLASS</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className='px-[5px] outline-none focus:outline-none border-0'>
-                        <img src={phone} />
+
+                    <div className='px-[5px] cursor-pointer'>
+                        <div className='bg-[url(../src/Images/ptf1.png)] h-[500px] bg-cover bg-no-repeat bg-centeroutline-none focus:outline-none border-0 relative ImageSection'>
+                            <div className='p-[20px] absolute bottom-[-20px] ImageSectionHover W-FULL'>
+                                <button className='text-white text-[10px] bg-[#cd2122] py-[6px] px-[4px] rounded  mb-[10px]'>MISCELLANEOUS, WEB</button>
+                                <p className='text-[18px] text-white font-bold'>GO FORWORD APPLICATION</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className='px-[5px] outline-none focus:outline-none border-0'>
-                        <img src={ptf5} />
+
+                    <div className='px-[5px] cursor-pointer'>
+                        <div className='bg-[url(../src/Images/ptf5.png)] h-[500px] bg-cover bg-no-repeat bg-center  outline-none focus:outline-none border-0 relative ImageSection'>
+                            <div className='p-[20px] absolute bottom-[-20px] ImageSectionHover'>
+                                <button className='text-white text-[10px] bg-[#cd2122] py-[6px] px-[4px] rounded mb-[10px] '>ILLUSTRATION, MISCELLANEOUS</button>
+                                <p className='text-[18px] text-white font-bold'>ENGINEER TURNKEY</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className='px-[5px] outline-none focus:outline-none border-0' >
-                        <img src={ptf7576} />
+
+                    <div className='px-[5px] cursor-pointer'>
+                        <div className='bg-[url(../src/Images/ptf7-768x576.png)] h-[500px] bg-no-repeat bg-cover bg-center outline-none focus:outline-none border-0 relative ImageSection' >
+                            <div className='p-[20px] absolute bottom-[-20px] ImageSectionHover '>
+                                <button className='text-white text-[10px] bg-[#cd2122] py-[6px] px-[4px] rounded  mb-[10px]'>APPS, BRANDING, WEB</button>
+                                <p className='text-[18px] text-white font-bold'>CROSS-UNIT META-SERVICE</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className='px-[5px] outline-none focus:outline-none border-0'>
-                        <img src={ptf3576} />
+
+                    <div className='px-[5px] cursor-pointer'>
+                        <div className='bg-[url(../src/Images/ptf3-768x576.png)] h-[500px] bg-no-repeat bg-cover bg-center  outline-none focus:outline-none border-0 relative ImageSection'>
+                            <div className='p-[20px] absolute bottom-[-20px] ImageSectionHover '>
+                                <button className='text-white text-[10px] bg-[#cd2122] py-[6px] px-[4px] rounded mb-[10px]'>ILLUSTRATION, MISCELLANEOUS</button>
+                                <p className='text-[18px] text-white font-bold'>PROGRESSIVIELY HARNESS</p>
+                            </div>
+                        </div>
                     </div>
 
                 </Slider>
@@ -330,14 +356,17 @@ export default function MultiPurpose() {
                 <p className="text-red-600 text[18px] mb-[20px]">our working process</p>
                 <div className='grid md:grid-cols-3 grid-cols-1 gap-[20px]'>
                     <div className='md:pr-[20px] pr-0'>
+                        <a href='/' target='_blank'>
                         <div className="PlanningCard">
                             <h3 className="font-semibold mb-2 text-[#535353]" >PLANNING & STRATEGY</h3>
                             <p className="text-[14px] text-gray-500">
                                 Appropriately productivate distributed infrastructures for one-to-one expertise.
                             </p>
                         </div>
+                        </a>
                     </div>
                     <div className='md:pr-[30px] pr-0'>
+                    <a href='/' target='_blank'>
                         <div className="DesignCard">
                             <div className='DesignCardData'>
                                 <h3 className="font-semibold mb-2 text-[#535353]">DESIGN & DEVELOP</h3>
@@ -346,9 +375,10 @@ export default function MultiPurpose() {
                                 </p>
                             </div>
                         </div>
+                    </a>
                     </div>
-
-                    <div >
+                    <div>
+                        <a href='/' target='_blank'>
                         <div className='TestCard '>
                             <div className="relative text-white  rounded-md flex justify-between items-center gap-[10px]">
                                 <div className='absolute left-0 top-10px] z-[10]'>
@@ -364,6 +394,7 @@ export default function MultiPurpose() {
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
             </div>

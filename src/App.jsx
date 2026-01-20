@@ -8,6 +8,7 @@ import Service from './components/Service'
 import Reviews from "./components/Reviews"
 import Footer from "./components/footer"
 import DemoButton from "./components/DemoButton"
+import { ParallaxProvider } from "react-scroll-parallax";
 
 
 function App() {
@@ -16,12 +17,14 @@ function App() {
   return (
     <>
 
+    <ParallaxProvider>
       <DemoButton />
      <Navbar />
      <Service />
      <MultiPurpose />
      <Reviews />
      <Footer />
+    </ParallaxProvider>
     </>
   )
 }

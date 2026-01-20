@@ -7,7 +7,7 @@ import picjumbo1 from "../Images/picjumbo.com_HNCK9101-370x200_c.jpg"
 import picjumbo2 from "../Images/picjumbo.com_HNCK8963-370x200_c.jpg"
 import picjumbo3 from "../Images/picjumbo.com_HNCK8377-370x200_c.jpg"
 import { ScrollReveal } from '@allwells/react-scroll-reveal';
-import { Parallax, ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
+import { ParallaxBanner} from 'react-scroll-parallax';
 import BgImg from "../Images/bg-demos-prlx.jpg"
 
 
@@ -15,149 +15,151 @@ export default function Reviews() {
   return (
     <>
       {/* PARTNERS & REVIEWS */}
-            <div className="ReviewsBackground relative z-10 py-[60px]  mt-[30px]" id='partners'>
-              <div className='w-full max-w-[1170px]  text-center mx-auto flex justify-center items-center flex-col gap-[20px] pt-[35px] pb-[60px]'>
-                <h2 className='text-white text-[24px]'>OUR PARTNERS & REVIEWS</h2>
-                <div className="w-12 h-[2px] bg-white "></div>
+
+      <ParallaxBanner layers={[{ image: '../src/Images/bg-demos-prlx.jpg', speed: 15 }]} className="aspect-[2/1]">
+        <div className="ReviewsBackground relative z-10 py-[60px]  mt-[30px]" id='partners'>
+          <div className='w-full max-w-[1170px]  text-center mx-auto flex justify-center items-center flex-col gap-[20px] pt-[35px] pb-[60px]'>
+            <h2 className='text-white text-[24px]'>OUR PARTNERS & REVIEWS</h2>
+            <div className="w-12 h-[2px] bg-white "></div>
+          </div>
+
+          <div className='w-full max-w-[1170px]  mx-auto flex flex-wrap md:flex-nowrap  gap-[30px] pb-[30px] px-[16px] '>
+            <div>
+              <div className='px-[40px] py-[50px] text-[14px] bg-[#00000042] text-white '>
+                “Credibly innovate granular internal or "organic" sources whereas high standards in web readiness. Energistically scale future-proof core competencies vis-a-vis impactful experiences. Dramatically synthesize integrated schemas with.
               </div>
-
-              <div className='w-full max-w-[1170px]  mx-auto flex flex-wrap md:flex-nowrap  gap-[30px] pb-[30px] px-[16px] '>
-                <div>
-                  <div className='px-[40px] py-[50px] text-[14px] bg-[#00000042] text-white '>
-                    “Credibly innovate granular internal or "organic" sources whereas high standards in web readiness. Energistically scale future-proof core competencies vis-a-vis impactful experiences. Dramatically synthesize integrated schemas with.
-                  </div>
-                  <div className='flex items-center gap-[10px]'>
-                    <div className=' rounded-[50%] p-[5px] bg-[gray]'>
-                      <img src={dannpetty} className='w-[110px] h-[110px] rounded-[50%]' />
-                    </div>
-                    <div className='text-white'>
-                      <h1 className='text-[16px]'>JIMMY FERRARA</h1>
-                      <h3 className='text-[13px] text-gray-500'>GENERAL MANAGER</h3>
-                      <div className='flex '>
-                        <StarSvgIcon />
-                        <StarSvgIcon />
-                        <StarSvgIcon />
-                        <StarSvgIcon />
-                        <StarSvgIcon />
-                      </div>
-                    </div>
-
-                  </div>
-
+              <div className='flex items-center gap-[10px]'>
+                <div className=' rounded-[50%] p-[5px] bg-[gray]'>
+                  <img src={dannpetty} className='w-[110px] h-[110px] rounded-[50%]' />
                 </div>
-
-
-                <div className='flex flex-wrap lg:flex-nowrap gap-[30px]'>
-
-                  <div>
-                    <div className='px-[40px] py-[50px] text-[14px] bg-[#00000042] text-white '>
-                      “Credibly innovate granular internal or "organic" sources whereas high standards in web readiness.
-                    </div>
-                    <div className='flex items-center gap-[10px] mt-[10px]'>
-                      <div className=' rounded-[50%] p-[5px] bg-[gray]'>
-                        <img src={madysondesigns} className='w-[60px] h-[60px] rounded-[50%]' />
-                      </div>
-                      <div className='text-white'>
-                        <h1 className='text-[14px]'>PAULA ANDREWS</h1>
-                        <h3 className='text-[13px] text-gray-500'>SWIFT Inc.</h3>
-                        <div className='flex '>
-                          <StarSvgIcon />
-                          <StarSvgIcon />
-                          <StarSvgIcon />
-                          <StarSvgIcon />
-                          <StarSvgIcon />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className='flex items-center gap-[10px] mt-[30px] lg:mt-0'>
-                      <div className=' rounded-[50%] p-[5px] bg-[gray]'>
-
-                        <img src={teleject} className='w-[60px] h-[60px] rounded-[50%]' />
-                      </div>
-                      <div className='text-white'>
-                        <h1 className='text-[14px]'>SAMMY BROWNS</h1>
-                        <h3 className='text-[13px] text-gray-500'>CFO, Perfect Inc.</h3>
-                        <div className='flex '>
-                          <StarSvgIcon />
-                          <StarSvgIcon />
-                          <StarSvgIcon />
-                          <StarSvgIcon />
-                          <StarSvgIcon />
-                        </div>
-                      </div>
-                    </div>
-                    <div className='px-[40px] py-[50px] text-[14px] bg-[#00000042] text-white mt-[10px] '>
-                      “Credibly innovate granular internal or "organic" sources whereas high standards in web readiness.
-                    </div>
-
+                <div className='text-white'>
+                  <h1 className='text-[16px]'>JIMMY FERRARA</h1>
+                  <h3 className='text-[13px] text-gray-500'>GENERAL MANAGER</h3>
+                  <div className='flex '>
+                    <StarSvgIcon />
+                    <StarSvgIcon />
+                    <StarSvgIcon />
+                    <StarSvgIcon />
+                    <StarSvgIcon />
                   </div>
                 </div>
 
               </div>
-              <div className="w-full max-w-[1170px] m-auto h-[1px] bg-[#ffffff4a] "></div>
-              <div className='w-full max-w-[1170px]  mx-auto  flex flex-wrap sm:flex-nowrap   gap-[30px] justify-between items-center z-[15] px-[16px]  mt-[10px]'>
-                <div>
-                  <h2 className='text-[18px] text-white mt-[40px]'>TECHNOLOGIES</h2>
-                  <div className="w-15   h-[1px] bg-white  mt-[10px]"></div>
+
+            </div>
+
+
+            <div className='flex flex-wrap lg:flex-nowrap gap-[30px]'>
+
+              <div>
+                <div className='px-[40px] py-[50px] text-[14px] bg-[#00000042] text-white '>
+                  “Credibly innovate granular internal or "organic" sources whereas high standards in web readiness.
                 </div>
-                <div className='flex justify-center gap-[30px] '>
-                  <ScrollReveal
-                    animationType="slideUp"
-                    delay={300}
-                    duration={800}
-                    once={false}
-                    threshold={0.2}
-
-                  >
-                    <MySqlIcon />
-                  </ScrollReveal>
-
-                  <ScrollReveal
-                    animationType="slideUp"
-                    delay={300}
-                    duration={800}
-                    once={false}
-                    threshold={0.2}
-                        className='hidden sm:block'
-                  >
-
-                    <PhpIcon />
-                  </ScrollReveal>
-
-
-
-                  <ScrollReveal
-                    animationType="slideUp"
-                    delay={300}
-                    duration={800}
-                    once={false}
-                    threshold={0.2}
-                    className='hidden sm:block'
-                  >
-
-                    <JqueryIcon />
-                  </ScrollReveal>
-
-
-                  <ScrollReveal
-                    animationType="slideUp"
-                    delay={300}
-                    duration={800}
-                    once={false}
-                    threshold={0.2}
-                    className='hidden md:block'
-                  >
-
-                    <PSIcon />
-                  </ScrollReveal>
-
+                <div className='flex items-center gap-[10px] mt-[10px]'>
+                  <div className=' rounded-[50%] p-[5px] bg-[gray]'>
+                    <img src={madysondesigns} className='w-[60px] h-[60px] rounded-[50%]' />
+                  </div>
+                  <div className='text-white'>
+                    <h1 className='text-[14px]'>PAULA ANDREWS</h1>
+                    <h3 className='text-[13px] text-gray-500'>SWIFT Inc.</h3>
+                    <div className='flex '>
+                      <StarSvgIcon />
+                      <StarSvgIcon />
+                      <StarSvgIcon />
+                      <StarSvgIcon />
+                      <StarSvgIcon />
+                    </div>
+                  </div>
                 </div>
+              </div>
+
+              <div>
+                <div className='flex items-center gap-[10px] mt-[30px] lg:mt-0'>
+                  <div className=' rounded-[50%] p-[5px] bg-[gray]'>
+
+                    <img src={teleject} className='w-[60px] h-[60px] rounded-[50%]' />
+                  </div>
+                  <div className='text-white'>
+                    <h1 className='text-[14px]'>SAMMY BROWNS</h1>
+                    <h3 className='text-[13px] text-gray-500'>CFO, Perfect Inc.</h3>
+                    <div className='flex '>
+                      <StarSvgIcon />
+                      <StarSvgIcon />
+                      <StarSvgIcon />
+                      <StarSvgIcon />
+                      <StarSvgIcon />
+                    </div>
+                  </div>
+                </div>
+                <div className='px-[40px] py-[50px] text-[14px] bg-[#00000042] text-white mt-[10px] '>
+                  “Credibly innovate granular internal or "organic" sources whereas high standards in web readiness.
+                </div>
+
               </div>
             </div>
-      
+
+          </div>
+          <div className="w-full max-w-[1170px] m-auto h-[1px] bg-[#ffffff4a] "></div>
+          <div className='w-full max-w-[1170px]  mx-auto  flex flex-wrap sm:flex-nowrap   gap-[30px] justify-between items-center z-[15] px-[16px]  mt-[10px]'>
+            <div>
+              <h2 className='text-[18px] text-white mt-[40px]'>TECHNOLOGIES</h2>
+              <div className="w-15   h-[1px] bg-white  mt-[10px]"></div>
+            </div>
+            <div className='flex justify-center gap-[30px] '>
+              <ScrollReveal
+                animationType="slideUp"
+                delay={300}
+                duration={800}
+                once={false}
+                threshold={0.2}
+
+              >
+                <MySqlIcon />
+              </ScrollReveal>
+
+              <ScrollReveal
+                animationType="slideUp"
+                delay={300}
+                duration={800}
+                once={false}
+                threshold={0.2}
+                className='hidden sm:block'
+              >
+
+                <PhpIcon />
+              </ScrollReveal>
+
+
+
+              <ScrollReveal
+                animationType="slideUp"
+                delay={300}
+                duration={800}
+                once={false}
+                threshold={0.2}
+                className='hidden sm:block'
+              >
+
+                <JqueryIcon />
+              </ScrollReveal>
+
+
+              <ScrollReveal
+                animationType="slideUp"
+                delay={300}
+                duration={800}
+                once={false}
+                threshold={0.2}
+                className='hidden md:block'
+              >
+
+                <PSIcon />
+              </ScrollReveal>
+
+            </div>
+          </div>
+        </div>
+      </ParallaxBanner>
 
 
       {/* LATEST STORIES */}
@@ -166,7 +168,7 @@ export default function Reviews() {
         <h2 className="text-red-600 text-[18px] uppercase mb-8">
           Latest Stories
         </h2>
-
+          {/* Three Images */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px]">
           <div>
             <div className="Storieshover relative overflow-hidden">
@@ -250,15 +252,20 @@ export default function Reviews() {
         </div>
 
         <div className="w-full max-w-[1170px] mx-auto h-[1px] bg-[gray] my-[30px]"></div>
-
+      
+        {/*  WORDPRESS THEME */}
         <div className='w-full max-w-[1170px] flex sm:flex-nowrap flex-wrap justify-between items-center'>
           <div className='md:max-w-[600px] sm:max-w-[400px] max-w-[600px] '>
             <h1 className='text-[#cd2122] text-[22px] mb-[10px] break-all'>ONE OF THE MOST COMPLETE WORDPRESS THEME</h1>
             <p className='text-[16px]'>We always had this statement and we're keeping our promise. Beside a powerful yet easy to use frontend Page Builder, Kallyas has packed inside lots of sweet features that wait to be discovered.</p>
           </div>
+          <a href="https://themeforest.net/item/kallyas-responsive-multipurpose-wordpress-theme/4091658?license=regular&open_purchase_for_item_id=4091658&purchasable=source&ref=hogash" target='_blank'>
           <button className='text-[13px] px-[20px] py-[10px] text-white bg-[#cd2122] w-full sm:w-[200px] sm:mt-0 mt-[20px] hover:bg-[#7f1e1e] rounded cursor-pointer'>BUY KALLYAS NOW</button>
+          </a>
         </div>
 
+
+         {/*CORPORATE HEADQUARTERS */}
         <div className='w-full max-w-[1170px] pt-[90px] pb-[35px]'>
           <h1 className='text-[#000000] text-[26px]'>CORPORATE HEADQUARTERS</h1>
           <p className='text-[#444444] text-[16px] pb-[25px]'>Kallyas Innovations, Inc.</p>

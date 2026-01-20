@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Icon from "../Images/kallyas-logo.svg";
 import { IoArrowBack } from "react-icons/io5";
-import { EnvatoIcon, Facebookwhite, LanguageIcon, LoginIcon, PrinterstWhite, QuoteIcon, SearchFirstIcon, SearchIcon, SupportIcon, TopArrowImgIcon, TwitterWhiteIcon } from "../svg";
+import { CloseIcon, EnvatoIcon, Facebookwhite, LanguageIcon, LoginIcon, PrinterstWhite, QuoteIcon, SearchFirstIcon, SearchIcon, SupportIcon, TopArrowImgIcon, TwitterWhiteIcon } from "../svg";
 import Slider from "react-slick";
 import QuoteModal from "../Modals/QuoteModal";
 import { US, FR, ES } from "country-flag-icons/react/3x2";
@@ -17,6 +17,7 @@ export default function Navbar() {
   const [SearchOpen, SetSearchOpen] = useState(false);
   const [fixSecondNav, setFixSecondNav] = useState(false);
   const [showBtn, setShowBtn] = useState("myBtn none");
+  const[searchInput, setSearchInput] = useState("");
 
 
   //For Header 
@@ -84,58 +85,58 @@ export default function Navbar() {
 
   return (
     <>
-      {SupportModalOpen && (
-        <>
-          <div className={`relative w-full z-50 bg-[#f4f2ef]   overflow-hidden transition-all duration-500 ease-in-out  
+      {/* Support Modal */}
+      <div className={` relative w-full z-50 bg-[#f4f2ef]   overflow-hidden transition-all duration-500 ease-in-out  
+          ${SupportModalOpen ? "max-h-[200px]" : "max-h-0"}
         `}>
-            <div className=" flex justify-end pr-[30px] pt-[20px]">
-              <button className="w-[40px] h-[40px] text-white flex items-center justify-center rounded-full cursor-pointer  bg-[#000000ab] text-[20px]" onClick={() => SetSupportModalOpen(false)}>
-                &times;
-              </button>
-            </div>
-            <div className='max-w-[1170px] mx-auto flex flex-wrap md:flex-nowrap justify-between items-center gap-[40px] pb-[25px] px-[20px]'>
-              <div className='px-[20px]'>
-                <h1 className='text-[black] text-[18px] mb-[10px]'>HOW TO SHOP</h1>
-                <div className='flex flex-wrap md:flex-nowrap  gap-[30px]'>
-                  <div className="flex items-start gap-3">
-                    <span className="w-7 h-7 flex items-center justify-center rounded-full bg-red-600 text-[black]text-sm font-semibold">
-                      1
-                    </span>
-                    <p className="text-[black] text-[14px]">
-                      Login or create new account.
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="w-7 h-7 flex items-center justify-center rounded-full bg-red-600 text-[black]text-sm font-semibold">
-                      2
-                    </span>
-                    <p className="text-[black] text-[14px]">
-                      Review your order
-                    </p>
-                  </div>
+        <div className="relative">
+          <button className="w-[40px] h-[40px] text-white rounded-full cursor-pointer  bg-[#000000ab] text-[20px] absolute xl:top-13 xl:right-10 top-0  right-0" onClick={() => SetSupportModalOpen(false)}>
+            &times;
+          </button>
+        </div>
 
-                  <div className="flex items-start gap-3">
-                    <span className="w-7 h-7 flex items-center justify-center rounded-full bg-red-600 text-[black]text-sm font-semibold">
-                      3
-                    </span>
-                    <p className="text-[black] text-[14px]">
-                      Payment & FREE shipment
-                    </p>
-                  </div>
-                </div>
-                <p className='text-[black] text-[12px] mt-[10px]'>If you still have problems, please let us know, by sending an email to support@website.com . Thank you!</p>
+        <div className='max-w-[1170px] mx-auto flex flex-wrap md:flex-nowrap justify-between items-center  pb-[25px] px-[20px] py-[30px] gap-[30px]'>
+          <div className='px-[20px]'>
+            <h1 className='text-[black] text-[18px] mb-[10px]'>HOW TO SHOP</h1>
+            <div className='flex flex-wrap md:flex-nowrap  gap-[30px]'>
+              <div className="flex items-start gap-3">
+                <span className="w-7 h-7 flex items-center justify-center rounded-full bg-red-600 text-[black]text-sm font-semibold">
+                  1
+                </span>
+                <p className="text-[black] text-[14px]">
+                  Login or create new account.
+                </p>
               </div>
-              <div className="md:px-0 px-[20px]">
-                <h1 className='text-[black] text-[18px]'>SHOWROOM HOURS</h1>
-                <p className='text-[black] text-[15px]'>Mon-Fri 9:00AM - 6:00AM</p>
-                <p className='text-[black] text-[15px]'>Sat - 9:00AM-5:00PM</p>
-                <p className='text-[black] text-[15px]'>Sundays by appointment only!</p>
+              <div className="flex items-start gap-3">
+                <span className="w-7 h-7 flex items-center justify-center rounded-full bg-red-600 text-[black]text-sm font-semibold">
+                  2
+                </span>
+                <p className="text-[black] text-[14px]">
+                  Review your order
+                </p>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="w-7 h-7 flex items-center justify-center rounded-full bg-red-600 text-[black]text-sm font-semibold">
+                  3
+                </span>
+                <p className="text-[black] text-[14px]">
+                  Payment & FREE shipment
+                </p>
               </div>
             </div>
-
+            <p className='text-[black] text-[12px] mt-[10px]'>If you still have problems, please let us know, by sending an email to support@website.com . Thank you!</p>
           </div>
-        </>
-      )}
+          <div className="md:px-0 px-[20px]">
+            <h1 className='text-[black] text-[18px]'>SHOWROOM HOURS</h1>
+            <p className='text-[black] text-[15px]'>Mon-Fri 9:00AM - 6:00AM</p>
+            <p className='text-[black] text-[15px]'>Sat - 9:00AM-5:00PM</p>
+            <p className='text-[black] text-[15px]'>Sundays by appointment only!</p>
+          </div>
+        </div>
+
+      </div>
+
 
       {/* Mobile Menu */}
       <div className="md:hidden block  w-full z-40  bg-[#000000d6]" >
@@ -274,9 +275,11 @@ export default function Navbar() {
                   </p>
 
                   <div className="flex gap-[10px] PlusBtn">
-                    <button className="bg-red-600 hover:bg-red-700 px-[20px] py-[10px] text-white text-[13px] rounded-[3px] cursor-pointer">
-                      BUY NOW
-                    </button>
+                    <a href="https://themeforest.net/item/kallyas-responsive-multipurpose-wordpress-theme/4091658?license=regular&open_purchase_for_item_id=4091658&purchasable=source&ref=hogash" target="_blank">
+                      <button className="bg-red-600 hover:bg-red-700 px-[20px] py-[10px] text-white text-[13px] rounded-[3px] cursor-pointer">
+                        BUY NOW
+                      </button>
+                    </a>
 
                     <button className="border border-white px-[25px] py-[10px] text-white text-[13px] rounded-[3px] cursor-pointer">
                       MORE DETAILS
@@ -315,7 +318,7 @@ export default function Navbar() {
                   
             `}
               >
-                <nav className="hidden primaryfont  md:flex md:justify-between md:m-auto p-[10px]">
+                <nav className="hidden primaryfont  md:flex md:justify-between md:m-auto px-[10px]  py-[15px]">
                   <div className="flex gap-[20px] items-center">
                     <div className='flex gap-[5px]' >
                       <Facebookwhite />
@@ -331,26 +334,23 @@ export default function Navbar() {
                   <div className="relative flex gap-[10px] text-white items-center text-[11px]">
                     <div className="relative group">
                       <p className="cursor-pointer">LANGUAGES</p>
-                      <div className="absolute hidden group-hover:block bg-white p-[10px] rounded-[2px]">
-                        <div className="flex gap-[6px] text-gray-800">
+                      <div className="absolute hidden group-hover:block bg-white p-[10px] rounded-[2px] cursor-pointer">
+                        <div className="flex gap-[6px] text-gray-800 hover:bg-gray-200">
                           <US className="w-[20px] h-[20px]" /> <p>ENGLISH</p>
                         </div>
-                        <div className="flex gap-[6px]  text-gray-800">
+                        <div className="flex gap-[6px]  text-gray-800 hover:bg-gray-200">
                           <FR className="w-[20px] h-[20px]" />  <p>FRANCAIS</p>
                         </div>
-                        <div className="flex gap-[6px]  text-gray-800">
+                        <div className="flex gap-[6px]  text-gray-800 hover:bg-gray-200">
                           <ES className="w-[20px] h-[20px]" /> <p>ESPANOL</p>
                         </div>
                       </div>
                     </div>
                     <p onClick={() => SetLoginModalOpen(true)} className="cursor-pointer">LOGIN</p>
-                    {LoginModalOpen && (
-                      <LoginModal closeLogin={() => SetLoginModalOpen(false)} />
-                    )}
 
                     <p onClick={() => SetSupportModalOpen(true)} className="cursor-pointer">SUPPORT</p>
 
-                    <div onClick={() => SetSearchOpen(true)} className="cursor-pointer">
+                    {/* <div onClick={() => SetSearchOpen(true)} className="cursor-pointer">
                       <SearchIcon />
                     </div>
                     {SearchOpen && (
@@ -363,7 +363,30 @@ export default function Navbar() {
                           <div className="border-b border-gray-300 pt-[5px]"></div>
                         </div>
                       </>
+                    )} */}
+
+                   
+                      {SearchOpen ? (
+                         <div  onClick={() => SetSearchOpen(false)} className="cursor-pointer bg-white w-[25px] h-[25px] flex items-center justify-center">
+                          <CloseIcon />
+                         </div>
+                      ) : (
+                        <div onClick={() => SetSearchOpen(true)} className="cursor-pointer bg-[#00000059] w-[25px] h-[25px] flex items-center justify-center">
+                          <SearchIcon />
+                        </div>
+                      )}
+                       {SearchOpen && (
+                      <>
+                        <div className="absolute top-[25px] right-0  bg-white w-full px-[20px] py-[30px] z-40">
+                          <div className="flex cursor-pointer">
+                            <input placeholder="SEARCH" type="text"  value={searchInput}    onChange={(e) => setSearchInput(e.target.value)} className="placeholder-gray-500 border-0 outline-none focus:outline-none text-[black]" /> 
+                            <SearchFirstIcon />
+                          </div>
+                          <div className="border-b border-gray-300 pt-[5px]"></div>
+                        </div>
+                      </> 
                     )}
+                  
 
                   </div>
                 </nav>
@@ -411,23 +434,15 @@ export default function Navbar() {
                     </div>
                   </div>
 
-                  <ul className=" hidden lg:flex lg:gap-[20px] lg:text-[11px] text-white cursor-pointer">
-                    <li className="relative z-[10] px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white 
-              rounded "><a href="#home">HOME</a></li>
-                    <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-               hover:rounded" ><a href="#services">SERVICES</a></li>
-                    <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-                 hover:rounded"><a href="#OurCompany">OUR COMPANY</a></li>
-                    <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-               hover:rounded"><a href="#portfolio">PORTFOLIO</a></li>
-                    <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-              hover:rounded"><a href="#process">PROCESS</a></li>
-                    <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-                 hover:rounded"><a href="#partners">PARTNERS</a></li>
-                    <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-               hover:rounded"><a href="#blog">BLOG</a></li>
-                    <li className="px-[9px] py-[5px] transition-transform duration-300 ease-out hover:scale-110 hover:bg-red-600 hover:text-white
-                 hover:rounded"><a href="#Contact">CONTACT</a></li>
+                  <ul className=" hidden lg:flex lg:gap-[10px] lg:text-[11px] text-white cursor-pointer">
+                    <li><a href="#home" className="ListNavbar">HOME</a></li>
+                    <li><a href="#services" className="ListNavbar">SERVICES</a></li>
+                    <li><a href="#OurCompany" className="ListNavbar">OUR COMPANY</a></li>
+                    <li><a href="#portfolio" className="ListNavbar">PORTFOLIO</a></li>
+                    <li><a href="#process" className="ListNavbar">PROCESS</a></li>
+                    <li><a href="#partners" className="ListNavbar">PARTNERS</a></li>
+                    <li><a href="#blog" className="ListNavbar">BLOG</a></li>
+                    <li><a href="#Contact" className="ListNavbar">CONTACT</a></li>
                   </ul>
 
 
@@ -439,9 +454,7 @@ export default function Navbar() {
                       <QuoteIcon />
                     </div>
                   </div>
-                  {QuoteModalOpen && (
-                    <QuoteModal close={() => setQuoteModalOpen(false)} />
-                  )}
+
                 </div>
               </div>
             </div>
@@ -460,8 +473,12 @@ export default function Navbar() {
               <p className="mt-[20px]">Packed with all the gems and goodies, Kallyas is our flagship WordPress Theme.</p>
             </div>
             <div className="flex flex-wrap sm:flex-nowrap justify-center items-center gap-[9px] ">
-              <button className="px-[20px] py-[9px]  text-[14px] text-white bg-transparent border border-white rounded cursor-pointer">JOIN OUR NEWSLETTER</button>
-              <button className="px-[20px] py-[9px] text-[14px] bg-white text-[black] rounded hover:bg-[#d8cece] cursor-pointer">BUY NOW</button>
+              <a href="#footer">
+                <button className="px-[20px] py-[9px]  text-[14px] text-white bg-transparent border border-white rounded cursor-pointer">JOIN OUR NEWSLETTER</button>
+              </a>
+              <a href="/" target="_blank">
+                <button className="px-[20px] py-[9px] text-[14px] bg-white text-[black] rounded hover:bg-[#d8cece] cursor-pointer">BUY NOW</button>
+              </a>
             </div>
           </div>
 
@@ -469,17 +486,25 @@ export default function Navbar() {
       </div>
 
 
-
+      {/* Top Btn */}
       <div
-       onClick={topFunction}
-         id="myBtn"
-        className={showBtn}
-      >
+        onClick={topFunction}
+        id="myBtn"
+        className={showBtn} >
 
         <TopArrowImgIcon />
         Top
 
       </div>
+
+
+      {QuoteModalOpen && (
+        <QuoteModal close={() => setQuoteModalOpen(false)} />
+      )}
+      {LoginModalOpen && (
+        <LoginModal closeLogin={() => SetLoginModalOpen(false)} />
+      )}
+
     </>
   );
 }
