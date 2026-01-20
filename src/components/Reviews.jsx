@@ -16,7 +16,7 @@ export default function Reviews() {
     <>
       {/* PARTNERS & REVIEWS */}
 
-      <ParallaxBanner layers={[{ image: '../src/Images/bg-demos-prlx.jpg', speed: 15 }]} className="aspect-[2/1]">
+      <ParallaxBanner layers={[{ image: '/bg-demos-prlx.jpg', speed: 15 }]} className="aspect-[2/1]">
         <div className="ReviewsBackground relative z-10 py-[60px]  mt-[30px]" id='partners'>
           <div className='w-full max-w-[1170px]  text-center mx-auto flex justify-center items-center flex-col gap-[20px] pt-[35px] pb-[60px]'>
             <h2 className='text-white text-[24px]'>OUR PARTNERS & REVIEWS</h2>
