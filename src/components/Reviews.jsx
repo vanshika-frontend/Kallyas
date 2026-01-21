@@ -152,7 +152,7 @@ export default function Reviews() {
             <div className="Storieshover relative ">
               <img
                 src={picjumbo1}
-                className="w-[360px] h-[194px] object-cover"
+                className="w-full max-w-[360px] h-[194px] object-cover"
                 alt=""
               />
               <button
@@ -178,7 +178,7 @@ export default function Reviews() {
             <div className="Storieshover relative ">
               <img
                 src={picjumbo2}
-                className="w-[360px] h-[194px] object-cover"
+                className="w-full max-w-[360px] h-[194px] object-cover"
                 alt=""
               />
               <button
@@ -205,7 +205,7 @@ export default function Reviews() {
             <div className="Storieshover relative ">
               <img
                 src={picjumbo3}
-                className="w-[360px] h-[194px] object-cover"
+                className="w-full max-w-[360px] h-[194px] object-cover"
                 alt=""
               />
               <button
