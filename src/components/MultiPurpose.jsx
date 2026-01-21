@@ -83,6 +83,8 @@ export default function MultiPurpose() {
     return (
         <>
             {/* MULTI-PURPOSE */}
+            <div className='w-full bg-[#f5f5f5]'>
+
             <section className="max-w-[1170px] w-full mx-auto  pt-[110px] pb-[70px]" id='OurCompany'>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 px-[15px]">
 
@@ -224,6 +226,7 @@ export default function MultiPurpose() {
 
                 </div>
             </section>
+            </div>
 
             {/* Slider */}
             <div className='w-full max-w-[1170px] m-auto px-[15px] py-[35px]' id='portfolio'>

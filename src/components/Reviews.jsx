@@ -140,6 +140,7 @@ export default function Reviews() {
 
 
       {/* LATEST STORIES */}
+
       <section className="w-full max-w-[1170px] mx-auto px-4 py-16" id='blog'>
 
         <h2 className="text-red-600 text-[18px] uppercase mb-8">
@@ -263,6 +264,7 @@ export default function Reviews() {
           </div>
         </div>
       </section>
+
 
     </>
   )

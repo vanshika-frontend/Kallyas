@@ -204,12 +204,15 @@ export default function Service() {
                     </div>
 
 
-
-                    <div className='mx-auto   w-[100px] h-[100px] bg-[white] rotate-[-45deg] shadow-[inset_0_12px_20px_rgba(0,0,0,0.2)] absolute bottom-[-65px] left-1/2 -translate-x-1/2  flex items-center justify-center BoxDownArrow'>
-                      
-                            <DownArrowImgIcon />
-                      
+                    <div className="absolute bottom-[15px] left-1/2  flex items-center justify-center">
+                        <MaskSvg />
+                    <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 '>
+                        <DownArrowImgIcon />
                     </div>
+                    </div>
+
+
+
 
 
 
@@ -226,6 +229,84 @@ export default function Service() {
     )
 }
 
+
+const MaskSvg = ({ width = "5000px", height = "57px", className = "" }) => {
+    return (
+        <svg
+            width={width}
+            height={height}
+            viewBox="0 0 5000 57"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            className={`svgmask ${className}`}
+        >
+            <defs>
+                <filter
+                    id="filter-mask3"
+                    x="-50%"
+                    y="-50%"
+                    width="200%"
+                    height="200%"
+                    filterUnits="objectBoundingBox"
+                >
+                    <feOffset
+                        dx="0"
+                        dy="3"
+                        in="SourceAlpha"
+                        result="shadowOffsetInner1"
+                    />
+                    <feGaussianBlur
+                        stdDeviation="2"
+                        in="shadowOffsetInner1"
+                        result="shadowBlurInner1"
+                    />
+                    <feComposite
+                        in="shadowBlurInner1"
+                        in2="SourceAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                        result="shadowInnerInner1"
+                    />
+                    <feColorMatrix
+                        type="matrix"
+                        in="shadowInnerInner1"
+                        result="shadowMatrixInner1"
+                        values="0 0 0 0 0   
+                    0 0 0 0 0   
+                    0 0 0 0 0  
+                    0 0 0 0.4 0"
+                    />
+                    <feMerge>
+                        <feMergeNode in="SourceGraphic" />
+                        <feMergeNode in="shadowMatrixInner1" />
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <path
+                d="M9.09383679e-13,57.0005249 L9.09383679e-13,34.0075249 L2418,34.0075249 L2434,34.0075249 
+           C2434,34.0075249 2441.89,33.2585249 2448,31.0245249 
+           C2454.11,28.7905249 2479,11.0005249 2479,11.0005249 
+           L2492,2.00052487 
+           C2492,2.00052487 2495.121,-0.0374751261 2500,0.000524873861 
+           C2505.267,-0.0294751261 2508,2.00052487 2508,2.00052487 
+           L2521,11.0005249 
+           C2521,11.0005249 2545.89,28.7905249 2552,31.0245249 
+           C2558.11,33.2585249 2566,34.0075249 2566,34.0075249 
+           L2582,34.0075249 L5000,34.0075249 
+           L5000,57.0005249 
+           L2500,57.0005249 
+           L1148,57.0005249 
+           L9.09383679e-13,57.0005249 Z"
+                className="bmask-bgfill"
+                fill="#f5f5f5"
+                filter="url(#filter-mask3)"
+            />
+        </svg>
+    );
+};
 
 
 
