@@ -8,6 +8,10 @@ import picjumbo2 from "../Images/picjumbo.com_HNCK8963-370x200_c.jpg"
 import picjumbo3 from "../Images/picjumbo.com_HNCK8377-370x200_c.jpg"
 import { ScrollReveal } from '@allwells/react-scroll-reveal';
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
+import logo2 from "../Images/logo2.svg"
+import logo3 from "../Images/logo3.svg"
+import logo4 from "../Images/logo4.svg"
+import logo7 from "../Images/logo7.svg"
 
 
 
@@ -17,8 +21,8 @@ export default function Reviews() {
       {/* PARTNERS & REVIEWS */}
 
       <ParallaxBanner  >
-       <ParallaxBannerLayer image="/bg-demos-prlx.jpg" speed={-20} />
-        <div className="ReviewsBackground w-full min-h-screen relative z-10 py-[60px]  mt-[30px]" id='partners'>
+        <ParallaxBannerLayer image="/bg-demos-prlx.jpg" speed={10} scale={[1, 1]} />
+        <div className="ReviewsBackground w-full min-h-screen md:min-h-[750px] relative z-10 pt-[60px]  mt-[30px]" id='partners'>
           <div className='w-full max-w-[1170px]  text-center mx-auto flex justify-center items-center flex-col gap-[20px] pt-[35px] pb-[60px]'>
             <h2 className='text-white text-[24px]'>OUR PARTNERS & REVIEWS</h2>
             <div className="w-12 h-[2px] bg-white "></div>
@@ -101,61 +105,33 @@ export default function Reviews() {
 
           </div>
           <div className="w-full max-w-[1170px] m-auto h-[1px] bg-[#ffffff4a] "></div>
-          <div className='w-full max-w-[1170px]  mx-auto  flex flex-wrap sm:flex-nowrap   gap-[30px] justify-between items-center z-[15] px-[16px]  mt-[10px]'>
+          <div className='w-full max-w-[1170px]  mx-auto  flex flex-wrap sm:flex-nowrap  justify-between gap-[30px] items-center z-[15] px-[16px]  my-[50px]'>
             <div>
-              <h2 className='text-[18px] text-white mt-[40px]'>TECHNOLOGIES</h2>
+              <h2 className='text-[18px] text-white '>TECHNOLOGIES</h2>
               <div className="w-15   h-[1px] bg-white  mt-[10px]"></div>
             </div>
-            <div className='flex justify-center gap-[30px] '>
-              <ScrollReveal
-                animationType="slideUp"
-                delay={300}
-                duration={800}
-                once={false}
-                threshold={0.2}
+            <div className='flex flex-1  justify-center gap-[30px] max-w-[889px] '>
+              <div className='flex  justify-center flex-1 ImageIconAnimation'>
+                <img src={logo2} alt='php'/>
+              </div>
 
-              >
-                <MySqlIcon />
-              </ScrollReveal>
 
-              <ScrollReveal
-                animationType="slideUp"
-                delay={300}
-                duration={800}
-                once={false}
-                threshold={0.2}
-                className='hidden sm:block'
-              >
-
-                <PhpIcon />
-              </ScrollReveal>
+              <div className='flex justify-center flex-1 ImageIconAnimation'>
+                  <img src={logo3} alt='hogesh'/>
+              </div>
 
 
 
-              <ScrollReveal
-                animationType="slideUp"
-                delay={300}
-                duration={800}
-                once={false}
-                threshold={0.2}
-                className='hidden sm:block'
-              >
-
-                <JqueryIcon />
-              </ScrollReveal>
+              <div className='flex justify-center flex-1 ImageIconAnimation'>
+                 <img src={logo4} alt='html'/>
+              </div>
 
 
-              <ScrollReveal
-                animationType="slideUp"
-                delay={300}
-                duration={800}
-                once={false}
-                threshold={0.2}
-                className='hidden md:block'
-              >
 
-                <PSIcon />
-              </ScrollReveal>
+              <div className='flex justify-center flex-1 ImageIconAnimation' >
+                   <img src={logo7} alt='kallyas'/>
+              </div>
+
 
             </div>
           </div>
@@ -172,14 +148,14 @@ export default function Reviews() {
         {/* Three Images */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px]">
           <div>
-            <div className="Storieshover relative overflow-hidden">
+            <div className="Storieshover relative ">
               <img
                 src={picjumbo1}
                 className="w-[360px] h-[194px] object-cover"
                 alt=""
               />
               <button
-                className="hoverbtn absolute bottom-[10px] left-[0px] bg-red-600 text-white text-[12px] px-[14px] py-[11px]"
+                className="hoverbtn absolute bottom-[10px] left-[-10px] bg-red-600 text-white text-[12px] px-[14px] py-[9px]"
               >
                 Read more +
               </button>
@@ -198,14 +174,14 @@ export default function Reviews() {
 
 
           <div>
-            <div className="Storieshover relative overflow-hidden">
+            <div className="Storieshover relative ">
               <img
                 src={picjumbo2}
                 className="w-[360px] h-[194px] object-cover"
                 alt=""
               />
               <button
-                className="hoverbtn absolute bottom-[10px] left-[0px] bg-red-600 text-white text-[12px] px-[14px] py-[11px]"
+                className="hoverbtn absolute bottom-[10px] left-[-10px] bg-red-600 text-white text-[12px] px-[14px] py-[9px]"
               >
                 Read more +
               </button>
@@ -225,14 +201,14 @@ export default function Reviews() {
 
 
           <div>
-            <div className="Storieshover relative overflow-hidden">
+            <div className="Storieshover relative ">
               <img
                 src={picjumbo3}
                 className="w-[360px] h-[194px] object-cover"
                 alt=""
               />
               <button
-                className="hoverbtn absolute bottom-[10px] left-[0px] bg-red-600 text-white text-[12px] px-[14px] py-[11px]"
+                className="hoverbtn absolute bottom-[10px] left-[-10px] bg-red-600 text-white text-[12px] px-[14px] py-[9px]"
               >
                 Read more +
               </button>

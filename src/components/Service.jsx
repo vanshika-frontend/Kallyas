@@ -154,7 +154,7 @@ export default function Service() {
                         className="relative w-full lg:w-1/2 h-[70vh] flex items-center justify-center lg:justify-end px-6 lg:pr-[50px] "
                     >
 
-                        <div className="absolute inset-0 bg-black/70 lg:rounded-br-[70px] rounded-br-0"></div>
+                        <div className="absolute inset-0 bg-black/70 "></div>
 
 
                         <div className="relative max-w-[540px] flex flex-col-reverse lg:flex-row items-center gap-[20px] text-center lg:text-right text-white " >
@@ -181,7 +181,7 @@ export default function Service() {
                         className="relative w-full lg:w-1/2 h-[70vh] flex items-center justify-center lg:justify-start px-6 lg:pl-[50px]"
                     >
 
-                        <div className="absolute inset-0 bg-red-600/80 lg:rounded-bl-[70px] rounded-bl-0"></div>
+                        <div className="absolute inset-0 bg-red-600/80  "></div>
 
                         <div className="relative max-w-[500px] flex flex-col lg:flex-row items-center gap-6 text-center lg:text-left text-white">
                             <img

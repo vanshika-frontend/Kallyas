@@ -252,29 +252,24 @@ html {
 //     background-repeat: no-repeat;
 //     width: 100%;
 //     background-attachment: fixed;
-
 // }
 
 .Storieshover {
     position: relative;
-    overflow: hidden;
+    width: 100%;
 
     .StorieshoverData {
         position: absolute;
         top: 0;
-        width: 360px;
-        height: 194px;
+        inset: 0;
         border: 5px solid #cd2122;
         background-color: rgba(0, 0, 0, 0.205);
-        z-index: 99;
-
         display: flex;
         justify-content: center;
         align-items: center;
-
         opacity: 0;
-        visibility: hidden;
         transition: opacity 0.3s ease;
+        cursor: pointer;
     }
 
     .hoverbtn {
@@ -285,7 +280,7 @@ html {
     &:hover {
         .StorieshoverData {
             opacity: 1;
-            visibility: visible;
+
         }
 
         .hoverbtn {
@@ -563,7 +558,7 @@ html {
         z-index: 1;
         color: white;
         padding: 0 10px;
-   
+
 
         &::before {
             content: "";
@@ -578,7 +573,7 @@ html {
             opacity: 0;
             z-index: -1;
             transform: translateY(-50%);
-                 border-radius: 3px;
+            border-radius: 3px;
         }
 
         &:hover {
@@ -768,12 +763,48 @@ html {
     }
 
 }
-.AllIconHover{
-    svg{
-        path{
-            &:hover{
+
+.AllIconHover {
+    svg {
+        path {
+            &:hover {
                 fill: #000000a3;
             }
         }
+    }
+}
+
+.ImageIconAnimation {
+    overflow: hidden;
+    img{
+        animation: ImageIcon 4s ease-in infinite;
+        opacity: 0;
+    }
+}
+
+@keyframes ImageIcon {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    25% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    75% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    87.5% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+
+        transform: translateY(100%);
+        opacity: 0;
     }
 }
