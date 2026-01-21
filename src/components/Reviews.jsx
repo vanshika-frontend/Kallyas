@@ -105,30 +105,30 @@ export default function Reviews() {
 
           </div>
           <div className="w-full max-w-[1170px] m-auto h-[1px] bg-[#ffffff4a] "></div>
-          <div className='w-full max-w-[1170px]  mx-auto  flex flex-wrap sm:flex-nowrap  justify-between gap-[30px] items-center z-[15] px-[16px]  my-[50px]'>
+          <div className='w-full max-w-[1170px]  mx-auto flex-wrap lg:flex-nowrap  flex  justify-between gap-[30px] items-center z-[15] px-[16px]  my-[50px]'>
             <div>
               <h2 className='text-[18px] text-white '>TECHNOLOGIES</h2>
               <div className="w-15   h-[1px] bg-white  mt-[10px]"></div>
             </div>
-            <div className='flex flex-1  justify-center gap-[30px] max-w-[889px] '>
+            <div className='flex flex-1  justify-center gap-[30px] max-w-[889px] lg:min-w-0 min-w-[90vw] '>
               <div className='flex  justify-center flex-1 ImageIconAnimation'>
                 <img src={logo2} alt='php'/>
               </div>
 
 
-              <div className='flex justify-center flex-1 ImageIconAnimation'>
+              <div className='hidden sm:flex justify-center flex-1 ImageIconAnimation'>
                   <img src={logo3} alt='hogesh'/>
               </div>
 
 
 
-              <div className='flex justify-center flex-1 ImageIconAnimation'>
+              <div className='hidden sm:flex justify-center flex-1 ImageIconAnimation'>
                  <img src={logo4} alt='html'/>
               </div>
 
 
 
-              <div className='flex justify-center flex-1 ImageIconAnimation' >
+              <div className='hidden xl:flex justify-center flex-1 ImageIconAnimation' >
                    <img src={logo7} alt='kallyas'/>
               </div>
 
